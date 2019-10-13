@@ -7,6 +7,7 @@
     </head>
         
     <body>
+        <?= $blogHeader ?>
         <?= $content ?>
     </body>
 </html>

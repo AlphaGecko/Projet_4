@@ -6,4 +6,4 @@
 
 <hr />
 
-<?php $blogHeader = ob_get_contents(); ?>
+<?php $blogHeader = ob_get_clean(); ?>
