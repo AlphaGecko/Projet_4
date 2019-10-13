@@ -50,6 +50,9 @@ while ($comment = $comments->fetch())
 }
 ?>
 
-<?php $content = ob_get_clean(); ?> <!-- Enregistrement et assignation à la variable $content -->
+<?php $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>
+<?php 
+require('header.php');
+require('template.php'); 
+?>

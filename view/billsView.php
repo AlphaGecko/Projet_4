@@ -30,4 +30,7 @@ $bills->closeCursor();
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>
+<?php 
+require('header.php');
+require('template.php'); 
+?>
