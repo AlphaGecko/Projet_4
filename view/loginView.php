@@ -1,10 +1,10 @@
-<?php $title = 'Connexion admin'; ?>
+<?php $title = 'Connexion'; ?>
 
 <?php ob_start(); ?>
 
 <h1>Connexion</h1>
 
-<form action="index.php?action=admin" method="post">
+<form action="index.php?action=connexion" method="post">
     <div>
         <label for="admin_name">Identifiant</label><br />
         <input type="text" id="identifiant" name="admin_id" required />

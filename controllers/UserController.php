@@ -4,8 +4,11 @@
 
 require_once('models/BillManager.php');
 require_once('models/CommentManager.php');
+require_once('models/ConnexionManager.php');
 
-class UserController {
+class UserController extends ConnexionManager {
+
+    public $userDatas;
 
     public function billsList()
     {
@@ -38,6 +41,13 @@ class UserController {
         else {
             header('Location: index.php?action=bill&id=' . $billId);
         }
+    }
+
+    public function userLogin() 
+    {
+        $isUser = new ConnexionManager(); 
+        $userDatas = $isUser->getAdmin();
+        require('view/loginView.php');
     }
 }
 

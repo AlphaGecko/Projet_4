@@ -8,4 +8,4 @@
 
 <hr />
 
-<?php $blogHeader = ob_get_clean(); ?>
+<?php $noSessionHeader = ob_get_clean(); ?>

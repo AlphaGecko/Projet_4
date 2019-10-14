@@ -50,11 +50,28 @@ if (isset($_GET['action'])) {
         }
     }
 
-    elseif($_GET['action'] === 'admin') 
+    elseif($_GET['action'] === 'connexion') 
     {
-        $adminView-> adminLogin();
-        $adminView-> adminCheck();
+        $adminView->adminLogin();
+        $data = $adminView->adminDatas->fetch();
+
+        $adminName = $data['admin_name']; 
+        $adminPassword = $data['admin_password'];
+
+        if (isset($_POST['admin_id']) && isset($_POST['admin_password']))
+        {
+            if (htmlspecialchars($_POST['admin_id']) === $adminName && htmlspecialchars($_POST['admin_password']) === $adminPassword)
+            {
+                echo 'Je suis administrateur';
+            } 
+            
+            else 
+            {
+                echo 'Je ne suis pas administrateur';
+            }
+        }
     }
+
 }
 
 else 
