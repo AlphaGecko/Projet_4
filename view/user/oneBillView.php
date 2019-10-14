@@ -54,5 +54,5 @@ while ($comment = $comments->fetch())
 
 <?php 
 require('header.php');
-require('template.php'); 
+require('view/template.php'); 
 ?>

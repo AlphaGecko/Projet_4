@@ -19,6 +19,23 @@
             <?= $content ?>
         <?php
         }
+
+        else if ($_SESSION['user'])
+        {
+        ?>
+            <?= $userHeader ?>
+            <?= $content ?>
+        <?php
+        }
+
+        else if ($_SESSION['admin'])
+        {
+        ?> 
+
+            <?= $adminHeader ?> 
+            <?= $content ?>
+        <?php
+        }
         ?>
         
         

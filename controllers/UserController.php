@@ -15,7 +15,7 @@ class UserController extends ConnexionManager {
         $billManager = new BillManager(); 
         $bills = $billManager->getBills(); 
     
-        require('view/billsView.php');
+        require('view/user/billsView.php');
     }
     
     public function bills()
@@ -26,7 +26,7 @@ class UserController extends ConnexionManager {
         $bill = $billManager->getOneBill($_GET['id']);
         $comments = $commentManager->getComments($_GET['id']);
     
-        require('view/oneBillView.php');
+        require('view/user/oneBillView.php');
     }
     
     public function addComment($billId, $author, $comment)
@@ -47,7 +47,7 @@ class UserController extends ConnexionManager {
     {
         $isUser = new ConnexionManager(); 
         $userDatas = $isUser->getAdmin();
-        require('view/loginView.php');
+        require('view/user/loginView.php');
     }
 }
 

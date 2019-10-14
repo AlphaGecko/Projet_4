@@ -32,5 +32,5 @@ $bills->closeCursor();
 
 <?php 
 require('header.php');
-require('template.php'); 
+require('view/template.php'); 
 ?>

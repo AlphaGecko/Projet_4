@@ -9,7 +9,7 @@ class AdminController extends UserController
         $this->adminDatas = $this->getAdmin();
 
 
-        require('view/loginView.php');
+        require('view/user/loginView.php');
     }
     
 }
