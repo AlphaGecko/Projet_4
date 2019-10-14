@@ -1,8 +1,10 @@
 <?php ob_start(); ?>
 
-<p style="text-align: center;">
-    <a href="index.php?action=connexion?>">Connexion</a>
-</p>
+<nav>
+    <p style="text-align: right;">
+        <a href="index.php?action=connexion">Connexion</a>
+    </p>
+</nav>
 
 <hr />
 
