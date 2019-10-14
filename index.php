@@ -53,6 +53,7 @@ if (isset($_GET['action'])) {
     elseif($_GET['action'] === 'admin') 
     {
         $adminView-> adminLogin();
+        $adminView-> adminCheck();
     }
 }
 
