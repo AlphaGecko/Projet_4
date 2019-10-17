@@ -1,5 +1,3 @@
-<?php session_start() ?>
-
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -11,34 +9,10 @@
     </head>
         
     <body>
-        <?php 
-        if (!$_SESSION['admin'] && !$_SESSION['user']) 
-        {
-        ?>
-            <?= $noSessionHeader ?>
-            <?= $content ?>
-        <?php
-        }
 
-        else if ($_SESSION['user'])
-        {
-        ?>
-            <?= $userHeader ?>
-            <?= $content ?>
-        <?php
-        }
+        <?= $header ?>
+        <?= $content ?>
 
-        else if ($_SESSION['admin'])
-        {
-        ?> 
-
-            <?= $adminHeader ?> 
-            <?= $content ?>
-        <?php
-        }
-        ?>
-        
-        
         <script src="public/js/script.js"></script>
     </body>
 </html>

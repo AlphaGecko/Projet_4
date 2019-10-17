@@ -44,10 +44,10 @@ class UserController extends ConnexionManager {
     }
 
     public function userLogin() 
-    {
-        $isUser = new ConnexionManager(); 
-        $userDatas = $isUser->getAdmin();
-        require('view/user/loginView.php');
+    { 
+        $this->userDatas = $this->getUser();
+
+        require('view/user/userLoginView.php');
     }
 }
 

@@ -1,17 +1,22 @@
 <?php 
-if (!$_SESSION['admin']) 
+if (!isset($_SESSION['admin'])) 
 {
-    header('Location: <ital>http://localhost/Projet_4/index.php</ital>');
+    header('Location: http://localhost/Projet_4/index.php');
 }
+else
+{ 
+   
 ?>
 
 <?php ob_start(); ?>
 
 <h1>Espace administrateur</h1>
 
-<?php $content = ob_get_clean(); ?>
+<?php $content = ob_get_clean(); 
+}
+?>
 
 <?php 
-require('header.php');
-require('template.php'); 
+require('adminHeader.php');
+require('view/template.php'); 
 ?>

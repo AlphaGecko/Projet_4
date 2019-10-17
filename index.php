@@ -1,3 +1,7 @@
+<?php session_start(); 
+// session_destroy();
+?>
+
 <!-- ROUTEUR -->
 
 <?php
@@ -50,7 +54,7 @@ if (isset($_GET['action'])) {
         }
     }
 
-    elseif($_GET['action'] === 'connexion') 
+    elseif($_GET['action'] === 'admin') 
     {
         $adminView->adminLogin();
         $data = $adminView->adminDatas->fetch();
@@ -62,7 +66,9 @@ if (isset($_GET['action'])) {
         {
             if (htmlspecialchars($_POST['admin_id']) === $adminName && htmlspecialchars($_POST['admin_password']) === $adminPassword)
             {
-                echo 'Je suis administrateur';
+                $_SESSION['admin'] = $_POST['admin_id'];
+                echo 'Je suis administrateur <br />'; 
+                print_r($_SESSION);
             } 
             
             else 
@@ -72,9 +78,40 @@ if (isset($_GET['action'])) {
         }
     }
 
+    elseif($_GET['action'] === 'connexion') 
+    {
+        $userView->userLogin();
+        $data = $userView->userDatas->fetchAll();
+
+        foreach($data as $value)
+        {
+            $userNameList[$value['user_id']] = $value['user_name']; 
+            $userPasswordList[$value['user_id']] = $value['user_password']; 
+        }
+
+        if (isset($_POST['user_id']) && isset($_POST['user_password']))
+        {
+            if (in_array(htmlspecialchars($_POST['user_id']), $userNameList) 
+            && in_array(htmlspecialchars($_POST['user_password']), $userPasswordList))
+            {
+                echo 'Je suis un utilisateur';
+            }  
+            
+            else 
+            {
+                echo 'Je ne suis pas un utilisateur';
+            }
+        }
+    }
+}
+
+else if (isset($_SESSION['admin']))
+{
+    $adminView->adminPanel();
 }
 
 else 
 {
     $userView->billsList();
 }
+

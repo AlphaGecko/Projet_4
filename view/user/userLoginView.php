@@ -7,14 +7,14 @@
 <form action="index.php?action=connexion" method="post">
     <div>
         <label for="admin_name">Identifiant</label><br />
-        <input type="text" id="identifiant" name="admin_id" required />
+        <input type="text" id="identifiant" name="user_id" required />
     </div>
     <div>
         <label for="admin_password">Mot de passe</label><br />
-        <input type="password" id="mdp" name="admin_password" required />
+        <input type="password" id="mdp" name="user_password" required />
     </div>
     <div>
-        <input type="submit" id="checkAdmin"/>
+        <input type="submit" id="checkUser"/>
     </div>
 </form>
 
