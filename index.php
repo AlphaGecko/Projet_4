@@ -66,9 +66,8 @@ if (isset($_GET['action'])) {
         {
             if (htmlspecialchars($_POST['admin_id']) === $adminName && htmlspecialchars($_POST['admin_password']) === $adminPassword)
             {
-                $_SESSION['admin'] = $_POST['admin_id'];
+                $_SESSION['admin'] = $data['admin_pseudo'];
                 echo 'Je suis administrateur <br />'; 
-                print_r($_SESSION);
             } 
             
             else 
