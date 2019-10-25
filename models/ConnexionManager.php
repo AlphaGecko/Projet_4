@@ -1,23 +1,18 @@
 <?php 
 
-class ConnexionManager extends DbManager
+require_once('dbManager.php');
+class ConnexionManager
 {
 
     public function getAdmin() 
     {     
-        $db = $this->dbConnect();
-
-        $req = $db->query('SELECT * FROM admin_log');
-
-        return $req;
+        $db = DbManager::dbConnect()->query('SELECT * FROM admin_log');
+        return $db;
     }
 
     public function getUser()
     {
-        $db = $this->dbConnect();
-
-        $req = $db->query('SELECT * FROM user_log');
-
-        return $req;
+        $db = DbManager::dbConnect()->query('SELECT * FROM user_log');
+        return $db;
     }
 }
