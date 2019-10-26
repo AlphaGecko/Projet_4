@@ -14,23 +14,23 @@ else
 
 <h2>Créer un nouveau billet</h2>
 
-<form action="index.php" method="post">
+<form action="index.php?action=validationNouveauBillet" method="post">
 
     <div>
         <label for="author">Auteur : </label><?= $_SESSION['admin'] ?>
     </div>
 
     <div>
-        <label for="titre">Titre</label><br />
-        <textarea id="titre" name="titre"></textarea>
+        <label for="title">Titre</label><br />
+        <textarea id="titre" name="title"></textarea>
     </div>
 
     <div>
-        <label for="contenu">Contenu</label><br />
-        <textarea id="newBill" name="contenu"></textarea>
+        <label for="content">Contenu</label><br />
+        <textarea id="newBill" name="content" class="tinymce"></textarea>
     </div>
 
-    <input type="submit" />
+    <input type="submit" name="valider" />
 </form>
 
 

@@ -102,6 +102,23 @@ if (isset($_GET['action'])) {
             }
         }
     }
+
+    elseif($_GET['action'] === 'validationNouveauBillet')
+    {
+
+        $author = $_SESSION['admin']; 
+        
+        if (isset($_POST['title']) && isset($_POST['content']))
+        {
+            $adminView->validation();
+            $sendToDb = new AdminController; 
+            $sendToDb->addNewBill($_POST['title'], $_POST['content'], $author);
+        }
+        else 
+        {
+            echo 'erreur';
+        }
+    }
 }
 
 else if (isset($_SESSION['admin']))

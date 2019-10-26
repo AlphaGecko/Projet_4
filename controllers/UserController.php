@@ -6,9 +6,17 @@ require_once('models/BillManager.php');
 require_once('models/CommentManager.php');
 require_once('models/ConnexionManager.php');
 
-class UserController extends ConnexionManager {
+class UserController {
 
     public $userDatas;
+
+    public function userLogin() 
+    { 
+        $datas = new ConnexionManager;
+        $this->userDatas = $datas->getUser();
+
+        require('view/user/userLoginView.php');
+    }
 
     public function billsList()
     {
@@ -43,11 +51,5 @@ class UserController extends ConnexionManager {
         }
     }
 
-    public function userLogin() 
-    { 
-        $this->userDatas = $this->getUser();
-
-        require('view/user/userLoginView.php');
-    }
 }
 

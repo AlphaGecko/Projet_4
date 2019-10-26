@@ -27,7 +27,7 @@
     </div>
     <div>
         <label for="comment">Commentaire</label><br />
-        <textarea id="comment" name="comment"></textarea>
+        <textarea id="comment" name="comment" class="tinymce"></textarea>
     </div>
     <div>
         <input type="submit" />

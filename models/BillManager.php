@@ -15,9 +15,23 @@ class BillManager extends DbManager
     {
         $req = DbManager::dbConnect()->prepare('SELECT * FROM bills WHERE id = ?');
         $req->execute(array($billId));
-        
-        $bill = $req->fetch();
+
+        $bill = $req->fetch(PDO::FETCH_ASSOC);
 
         return $bill;
+    }
+
+    public function insertBill($title, $content, $author) 
+    {
+        $newBill = DbManager::dbConnect()->prepare('INSERT INTO bills(title, content, author, creation_date) 
+        VALUES(?, ?, ?, NOW())');
+        $newBill->execute(array($title, $content, $author));
+        
+    }
+
+    public function updateBill($billId)
+    {
+        $updateBill = DbManager::dbConnect()->prepare('UPDATE bills SET title = ?, content = ? WHERE id = ?');
+        $updateBill->execute();
     }
 }
