@@ -11,14 +11,14 @@ class AdminController
         $this->adminDatas = $datas->getAdmin();
 
 
-        require_once('view/user/adminLoginView.php');
+        require_once('view/adminLoginView.php');
     }
 
     public function adminPanel()
     {
         if (isset($_SESSION['admin']))
         {
-            require_once('view/admin/adminPanelView.php');
+            require_once('view/adminPanelView.php');
         }
         
     }
@@ -43,6 +43,6 @@ class AdminController
 
     public function validation()
     {
-        require_once('view/admin/validationView.php');
+        require_once('view/validationView.php');
     }
 }

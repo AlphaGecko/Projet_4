@@ -5,13 +5,13 @@
 <p><a href="index.php">Retour à la liste des billets</a></p>
 
 <div class="news">
+    <h2><?= htmlspecialchars($bill['title']) ?></h2>
 
-    <h2><?= $bill['title'] ?></h2>
-
-    <h3> <?= htmlspecialchars($bill['author']) ?>, le <em> <?= $bill['creation_date'] ?></em></h3>
-    
+    <h3>Par <?= htmlspecialchars($bill['author']) ?> le <em><?= $bill['creation_date'] ?></em></h3>
     <p>
-        <?= nl2br($bill['content']) ?>
+        <?= $bill['content'] ?>
+        <br />
+        <em><a href="index.php?action=bill&amp;id=<?= $bill['id'] ?>">Commentaires</a></em>
     </p>
 </div>
 
@@ -43,7 +43,7 @@ while ($comment = $comments->fetch())
     </p>
 
     <p>
-        <?= nl2br($comment['comment']) ?>
+        <?= $comment['comment'] ?>
     </p>
 <?php
 }

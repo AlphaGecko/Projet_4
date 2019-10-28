@@ -3,6 +3,7 @@
 <?php ob_start(); ?>
 
 <h1>Mon super blog !</h1>
+<p>Derniers billets du blog :</p>
 
 <?php
 while ($data = $bills->fetch())
@@ -10,13 +11,11 @@ while ($data = $bills->fetch())
 ?>
 
     <div class="news">
+        <h2><?= htmlspecialchars($data['title']) ?></h2>
 
-        <h2><?= $data['title'] ?></h2>
-
-        <h3>Par <?= htmlspecialchars($data['author']) ?>, le <em> <?= $data['creation_date'] ?></em></h3>
-        
+        <h3>Par <?= htmlspecialchars($data['author']) ?> le <em><?= $data['creation_date'] ?></em></h3>
         <p>
-            <?= nl2br($data['content']) ?>
+            <?= $data['content'] ?>
             <br />
             <em><a href="index.php?action=bill&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
         </p>

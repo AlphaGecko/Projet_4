@@ -2,7 +2,7 @@
 
 <nav>
     <p style="text-align: right;">
-        <a href="index.php?action=connexion">Connexion</a>
+        en-tête user
     </p>
 </nav>
 

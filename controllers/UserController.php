@@ -15,7 +15,7 @@ class UserController {
         $datas = new ConnexionManager;
         $this->userDatas = $datas->getUser();
 
-        require('view/user/userLoginView.php');
+        require('view/userLoginView.php');
     }
 
     public function billsList()
@@ -23,7 +23,7 @@ class UserController {
         $billManager = new BillManager(); 
         $bills = $billManager->getBills(); 
     
-        require('view/user/billsView.php');
+        require('view/billsView.php');
     }
     
     public function bills()
@@ -34,7 +34,7 @@ class UserController {
         $bill = $billManager->getOneBill($_GET['id']);
         $comments = $commentManager->getComments($_GET['id']);
     
-        require('view/user/oneBillView.php');
+        require('view/oneBillView.php');
     }
     
     public function addComment($billId, $author, $comment)
