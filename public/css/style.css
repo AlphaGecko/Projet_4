@@ -1,0 +1,12 @@
+#request_box {
+    min-height: 500px; 
+    border: 2px groove #333; 
+    margin: 20px;
+}
+
+#add_container, #list_container {
+    opacity: 0; 
+    position: absolute;
+    z-index: 0;
+    visibility: hidden ;
+}

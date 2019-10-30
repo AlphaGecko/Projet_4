@@ -11,6 +11,13 @@ class BillManager extends DbManager
         return $bills;
     }
 
+    public function getBillsForAdmin() 
+    {
+        $allBills = DbManager::dbConnect()->query('SELECT * FROM bills ORDER BY creation_date DESC');
+
+        return $allBills;
+    }
+
     public function getOneBill($billId)
     {
         $req = DbManager::dbConnect()->prepare('SELECT * FROM bills WHERE id = ?');
@@ -26,12 +33,17 @@ class BillManager extends DbManager
         $newBill = DbManager::dbConnect()->prepare('INSERT INTO bills(title, content, author, creation_date) 
         VALUES(?, ?, ?, NOW())');
         $newBill->execute(array($title, $content, $author));
-        
     }
 
-    public function updateBill($billId)
+    public function updateBill($billID)
     {
-        $updateBill = DbManager::dbConnect()->prepare('UPDATE bills SET title = ?, content = ? WHERE id = ?');
-        $updateBill->execute();
+        $updateBill = DbManager::dbConnect()->prepare('UPDATE bills SET title = :newTitle, content = :newContent WHERE id =' .$billID);
+        $updateBill->execute(array('newTitle' => $_POST['title'], 'newContent' => $_POST['content']));
+    }
+
+    public function deleteBill($billID)
+    {
+        $deleteBill = DbManager::dbConnect()->prepare('DELETE FROM bills WHERE id = ?');
+        $deleteBill->execute(array($billID));
     }
 }

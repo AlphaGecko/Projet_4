@@ -10,34 +10,55 @@ else
 
 <?php ob_start(); ?>
 
-<h1>Espace administrateur</h1>
+<div id="adminChoice">
+    <input type="button" id="add_button" value="Ajouter un billet" />
+    <input type="button" id="list_button" value="Liste des billets" />
+    <span id="alert">Il y'a actuellement X alertes à signaler</span>
+</div>
 
-<h2>Créer un nouveau billet</h2>
+<div id="request_box">
 
-<form action="index.php?action=validationNouveauBillet" method="post">
+    <div id="add_container">
+        <form action="index.php?action=newBillValidation" method="post">
+            <div>
+                <label for="author">Auteur : </label><?= $_SESSION['admin'] ?>
+            </div>
 
-    <div>
-        <label for="author">Auteur : </label><?= $_SESSION['admin'] ?>
+            <div>
+                <label for="title">Titre</label><br />
+                <textarea id="titre" name="title"></textarea>
+            </div>
+
+            <div>
+                <label for="content">Contenu</label><br />
+                <textarea id="newBill" name="content" class="tinymce"></textarea>
+            </div>
+
+            <input type="submit" name="valider" />
+        </form>
+    </div>
+    
+    <div id="list_container">
+    <?php
+    while ($data = $bills->fetch())
+    {
+    ?>
+        <div class="news">
+            <p><strong><?= htmlspecialchars($data['title']) ?></strong> Par <?= htmlspecialchars($data['author']) ?> le <em><?= $data['creation_date'] ?></em></p> 
+            <p><?= $data['content'] ?> </p>
+            <a href="index.php?action=editBill&amp;id=<?= $data['id'] ?>">
+                <input type="button" class="edit_button" value="Modifier ou supprimer le billet"/>
+            </a>
+        </div>
+    <?php
+    }
+    $bills->closeCursor();
+    ?>
     </div>
 
-    <div>
-        <label for="title">Titre</label><br />
-        <textarea id="titre" name="title"></textarea>
-    </div>
-
-    <div>
-        <label for="content">Contenu</label><br />
-        <textarea id="newBill" name="content" class="tinymce"></textarea>
-    </div>
-
-    <input type="submit" name="valider" />
-</form>
+</div>
 
 
-<h2>Voir la liste des billets pour les modifier ou les supprimer</h2>
-<input type="button" value="Liste des billet" id="adminListBill">
-
-<h2>Commentaire(s) signalé(s) : </h2>
 
 <?php $content = ob_get_clean(); 
 }

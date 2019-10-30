@@ -3,16 +3,38 @@ if (!isset($_SESSION['admin']))
 {
     header('Location: http://localhost/Projet_4/index.php');
 }
-else
-{ 
-   
 ?>
 
-<?php ob_start(); ?>
+<?php ob_start();
 
-<h2>Votre billet à bien été envoyé !</h2>
-<a href="index.php"><p>Retour à panneau adminisitrateur</p></a>
+if (isset($_GET['action']))
+{ 
 
+?>
+
+<?php 
+if($_GET['action'] === 'newBillValidation')
+{
+?>
+    <h2>Votre billet à bien été envoyé !</h2>
+    <a href="index.php"><p>Retour à panneau adminisitrateur</p></a>
+<?php
+}
+elseif($_GET['action'] === 'editionValidation')
+{
+?>
+    <h2>Votre billet à bien été modifié !</h2>
+    <a href="index.php"><p>Retour à panneau adminisitrateur</p></a>
+<?php
+}
+elseif($_GET['action'] === 'deleteValidation')
+{
+?>
+    <h2>Votre billet à bien été supprimé !</h2>
+    <a href="index.php"><p>Retour à panneau adminisitrateur</p></a>
+<?php
+}
+?>
 <?php $content = ob_get_clean(); 
 }
 ?>

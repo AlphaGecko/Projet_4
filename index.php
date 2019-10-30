@@ -103,7 +103,7 @@ if (isset($_GET['action'])) {
         }
     }
 
-    elseif($_GET['action'] === 'validationNouveauBillet')
+    elseif($_GET['action'] === 'newBillValidation')
     {
 
         $author = $_SESSION['admin']; 
@@ -119,15 +119,46 @@ if (isset($_GET['action'])) {
             echo 'erreur';
         }
     }
+
+    elseif($_GET['action'] === 'deconnexion')
+    {
+        $adminView->deconnexion();
+    }
+
+    elseif ($_GET['action'] === 'editBill')
+    {
+        if (isset($_GET['id']) && $_GET['id'] > 0) 
+        { 
+            $adminView->editBill();
+        }
+    }
+
+    elseif($_GET['action'] === 'editionValidation')
+    {
+        if (isset($_GET['id']) && $_GET['id'] > 0) 
+        {
+            $adminView->editionValidation($_GET['id']);
+        }
+    }
+
+    elseif($_GET['action'] === 'deleteValidation')
+    {
+        if (isset($_GET['id']) && $_GET['id'] > 0) 
+        {
+            $adminView->deleteValidation($_GET['id']);
+        }
+    }
 }
+
+/* default views */ 
 
 else if (isset($_SESSION['admin']))
 {
     $adminView->adminPanel();
 }
 
+
 else 
 {
     $userView->billsList();
 }
-

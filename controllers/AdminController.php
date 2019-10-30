@@ -1,7 +1,5 @@
 <?php 
-
-require_once('models/ConnexionManager.php');
-class AdminController 
+class AdminController extends UserController
 {
     public $adminDatas;
 
@@ -18,7 +16,10 @@ class AdminController
     {
         if (isset($_SESSION['admin']))
         {
+            $billManager = new BillManager; 
+            $bills = $billManager->getBillsForAdmin();
             require_once('view/adminPanelView.php');
+
         }
         
     }
@@ -32,17 +33,47 @@ class AdminController
         }  
     }
 
-    public function modifyBill($billId)
+    public function editBill()
     {
         if (isset($_SESSION['admin']))
         {
-            $DbLink = new BillManager();
-            $DbLink->updateBill($billId);
+            $billManager = new BillManager;
+            $bill = $billManager->getOneBill($_GET['id']);
+
+            require_once('view/adminEditView.php');
+        }  
+    }
+
+    public function editionValidation($billID)
+    {
+        if (isset($_SESSION['admin']))
+        {
+            $billManager = new BillManager;
+            $billManager->updateBill($billID);
+
+            require_once('view/validationView.php');
+        }  
+    }
+
+    public function deleteValidation($billID)
+    {
+        if (isset($_SESSION['admin']))
+        {
+            $billManager = new BillManager;
+            $billManager->deleteBill($billID);
+            
+            require_once('view/validationView.php');
         }  
     }
 
     public function validation()
     {
         require_once('view/validationView.php');
+    }
+
+    public function deconnexion()
+    {
+        session_destroy();
+        require_once('view/deconnexion.php');
     }
 }
