@@ -15,6 +15,13 @@ class CommentManager
         return $comments;
     }
 
+    public function getCommentId($commentId)
+    {
+        $comment = DbManager::dbConnect()->prepare('SELECT id FROM comment WHERE id = ?'); 
+        $comment->execute(array($commentId));
+        return $comment;
+    }
+
     public function postComment($billId, $author, $comment)
     {
         $comments = DbManager::dbConnect()->prepare('INSERT INTO comments(bill_id, comment_author, comment, comment_date) 
@@ -23,5 +30,11 @@ class CommentManager
         $affectedLines = $comments->execute(array($billId, $author, $comment));
 
         return $affectedLines;
+    }
+
+    public function deleteComment($commentId)
+    {
+        $deleteBill = DbManager::dbConnect()->prepare('DELETE FROM comments WHERE id = ?');
+        $deleteBill->execute(array($commentId));
     }
 }

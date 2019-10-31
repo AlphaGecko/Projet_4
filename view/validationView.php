@@ -34,7 +34,15 @@ elseif($_GET['action'] === 'deleteValidation')
     <a href="index.php"><p>Retour à panneau adminisitrateur</p></a>
 <?php
 }
+elseif($_GET['action'] === 'deleteCommentValidation')
+{
 ?>
+    <h2>Le commentaire à bien été supprimé !</h2>
+    <a href="index.php"><p>Retour à panneau adminisitrateur</p></a>
+<?php
+}
+?>
+
 <?php $content = ob_get_clean(); 
 }
 ?>

@@ -66,6 +66,17 @@ class AdminController extends UserController
         }  
     }
 
+    public function deleteCommentValidation($commentId)
+    {
+        if (isset($_SESSION['admin']))
+        {
+            $commentManager = new CommentManager;
+            $commentManager->deleteComment($commentId);
+            
+            require_once('view/validationView.php');
+        }  
+    }
+
     public function validation()
     {
         require_once('view/validationView.php');

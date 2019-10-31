@@ -148,6 +148,22 @@ if (isset($_GET['action'])) {
             $adminView->deleteValidation($_GET['id']);
         }
     }
+
+    elseif($_GET['action'] === 'editComment')
+    {
+        if (isset($_GET['id']) && $_GET['id'] > 0) 
+        {
+            $userView->bills();
+        }
+    }
+
+    elseif($_GET['action'] === 'deleteCommentValidation')
+    {
+        if (isset($_GET['commentId']) && $_GET['commentId'] > 0) 
+        {
+            $adminView->deleteCommentValidation($_GET['commentId']);
+        }
+    }
 }
 
 /* default views */ 
