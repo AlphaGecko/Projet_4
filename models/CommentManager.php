@@ -26,7 +26,7 @@ class CommentManager
     {
         $comments = DbManager::dbConnect()->prepare('INSERT INTO comments(bill_id, comment_author, comment, comment_date) 
         VALUES(?, ?, ?, NOW())');
-
+        
         $affectedLines = $comments->execute(array($billId, $author, $comment));
 
         return $affectedLines;

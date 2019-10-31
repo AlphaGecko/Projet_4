@@ -153,7 +153,7 @@ if (isset($_GET['action'])) {
     {
         if (isset($_GET['id']) && $_GET['id'] > 0) 
         {
-            $userView->bills();
+            $adminView->adminBills();
         }
     }
 

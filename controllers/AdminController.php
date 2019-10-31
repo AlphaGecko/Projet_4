@@ -24,6 +24,17 @@ class AdminController extends UserController
         
     }
 
+    public function adminBills()
+    {
+        $billManager = new BillManager();
+        $commentManager = new CommentManager();
+    
+        $bill = $billManager->getOneBill($_GET['id']);
+        $comments = $commentManager->getComments($_GET['id']);
+    
+        require('view/adminOneBillView.php');
+    }
+
     public function addNewBill($title, $content, $author)
     {
         if (isset($_SESSION['admin']))
