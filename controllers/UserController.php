@@ -51,5 +51,12 @@ class UserController {
         }
     }
 
+    public function report($commentId)
+    {
+        $commentManager = new CommentManager(); 
+        $commentManager->updateReport($commentId);
+
+        require('view/validationView.php');
+    }
 }
 

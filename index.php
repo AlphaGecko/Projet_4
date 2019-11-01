@@ -31,6 +31,7 @@ if (isset($_GET['action'])) {
         }
     }
 
+
     elseif ($_GET['action'] === 'addComment') 
     { 
 
@@ -164,6 +165,20 @@ if (isset($_GET['action'])) {
             $adminView->deleteCommentValidation($_GET['commentId']);
         }
     }
+
+    elseif($_GET['action'] === 'report')
+    {
+        if(isset($_GET['reportId']) && $_GET['reportId'] > 0)
+        {
+            $userView->report($_GET['reportId']);
+        }
+    }
+
+    elseif($_GET['action'] === 'reportedComments')
+    {
+        $adminView->allReportedComments();
+    }
+
 }
 
 /* default views */ 

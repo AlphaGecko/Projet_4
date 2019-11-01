@@ -10,10 +10,22 @@ else
 
 <?php ob_start(); ?>
 
+<?php 
+while ($reportList = $reports->fetch())
+{
+    $reportedNumber = 0;
+
+    if($reportList['report'] > 0)
+    {
+        $reportedNumber++;
+    }
+}
+?>
+
 <div id="adminChoice">
     <input type="button" id="add_button" value="Ajouter un billet" />
     <input type="button" id="list_button" value="Liste des billets" />
-    <span id="alert">Il y'a actuellement X alertes à signaler</span>
+    <span id="alert">Il y'a actuellement <a href="index.php?action=reportedComments"><?= $reportedNumber ?> commentaire(s)</a> signalé(s).</span>
 </div>
 
 <div id="request_box">

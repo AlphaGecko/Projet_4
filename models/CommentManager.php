@@ -34,7 +34,21 @@ class CommentManager
 
     public function deleteComment($commentId)
     {
-        $deleteBill = DbManager::dbConnect()->prepare('DELETE FROM comments WHERE id = ?');
-        $deleteBill->execute(array($commentId));
+        $deleteComment = DbManager::dbConnect()->prepare('DELETE FROM comments WHERE id = ?');
+        $deleteComment->execute(array($commentId));
+    }
+
+    public function updateReport($commentId)
+    {  
+        $updateComment = DbManager::dbConnect()->prepare('UPDATE comments SET report = report + 1 WHERE id = ?');
+        $updateComment->execute(array($commentId));
+    }
+
+    public function getReportedComments()
+    {
+        $allComments = DbManager::dbConnect()->query('SELECT id, comment_author, comment, report, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') 
+        AS comment_date_fr FROM comments ORDER BY comment_date DESC'); 
+        
+        return $allComments;
     }
 }

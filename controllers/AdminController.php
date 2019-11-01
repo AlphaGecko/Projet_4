@@ -18,10 +18,23 @@ class AdminController extends UserController
         {
             $billManager = new BillManager; 
             $bills = $billManager->getBillsForAdmin();
-            require_once('view/adminPanelView.php');
 
+            $commentManager = new CommentManager(); 
+            $reports = $commentManager->getReportedComments();
+
+            require_once('view/adminPanelView.php');
+        } 
+    }
+
+    public function allReportedComments()
+    {
+        if (isset($_SESSION['admin']))
+        {
+            $commentManager = new CommentManager();
+            $reports = $commentManager->getReportedComments();
+
+            require_once('view/adminReportedCommentsView.php');
         }
-        
     }
 
     public function adminBills()
@@ -62,7 +75,7 @@ class AdminController extends UserController
             $billManager = new BillManager;
             $billManager->updateBill($billID);
 
-            require_once('view/validationView.php');
+            require_once('view/adminValidationView.php');
         }  
     }
 
@@ -73,7 +86,7 @@ class AdminController extends UserController
             $billManager = new BillManager;
             $billManager->deleteBill($billID);
             
-            require_once('view/validationView.php');
+            require_once('view/adminValidationView.php');
         }  
     }
 
@@ -84,13 +97,13 @@ class AdminController extends UserController
             $commentManager = new CommentManager;
             $commentManager->deleteComment($commentId);
             
-            require_once('view/validationView.php');
+            require_once('view/adminValidationView.php');
         }  
     }
 
     public function validation()
     {
-        require_once('view/validationView.php');
+        require_once('view/adminValidationView.php');
     }
 
     public function deconnexion()

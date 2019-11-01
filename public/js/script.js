@@ -1,3 +1,5 @@
+// front espace administrateur
+
 const addButton = $('#add_button');
 const listButton = $('#list_button');
 
@@ -13,6 +15,8 @@ listButton.click(function() {
     addContainer.css({ 'opacity': 0, 'z-index': 0, 'position' : 'absolute', 'visibility' : 'hidden' });
     listContainer.css({ 'opacity': 1, 'z-index': 100, 'position' : 'relative', 'visibility' : 'visible' });
 });
+
+// Confirmation d'un effacement par l'admin
 
 const deleteButton = $('.delete_button');
 const deleteComment = $('.delete_comment')

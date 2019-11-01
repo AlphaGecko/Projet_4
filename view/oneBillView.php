@@ -1,6 +1,6 @@
 <?php $title = htmlspecialchars($bill['title']); ?>
 
-<?php ob_start(); ?> <!-- Départ de ce qui va être enregistré dans $content -->
+<?php ob_start(); ?>
 
 <p><a href="index.php">Retour à la liste des billets</a></p>
 
@@ -41,7 +41,9 @@ while ($comment = $comments->fetch())
     </p>
 
     <?= $comment['comment'] ?>
-    <input type="button" value="Signaler ce commentaire" class="report">
+    <form action="index.php?action=report&amp;reportId=<?= $comment['id'] ?>&amp;id=<?= $_GET['id'] ?>" method="post">
+        <input type="submit" value="Signaler ce commentaire" class="report">
+    </form>
 <?php
 }
 ?>

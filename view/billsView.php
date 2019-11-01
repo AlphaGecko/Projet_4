@@ -2,8 +2,7 @@
 
 <?php ob_start(); ?>
 
-<h1>Mon super blog !</h1>
-<p>Derniers billets du blog :</p>
+<h1>MyBlog</h1>
 
 <?php
 while ($data = $bills->fetch())
