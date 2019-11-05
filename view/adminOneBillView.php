@@ -14,7 +14,7 @@ else
     <div class="news">
         <h2><?= htmlspecialchars($bill['title']) ?></h2>
 
-        <h3>Par <?= htmlspecialchars($bill['author']) ?> le <em><?= $bill['creation_date'] ?></em></h3>
+        <h3>Par <?= htmlspecialchars($bill['author']) ?> le <em><?= $bill['creation_date_fr'] ?></em></h3>
         <p>
             <?= $bill['content'] ?>
         </p>

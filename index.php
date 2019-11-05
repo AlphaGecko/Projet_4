@@ -68,12 +68,12 @@ if (isset($_GET['action'])) {
             if (htmlspecialchars($_POST['admin_id']) === $adminName && htmlspecialchars($_POST['admin_password']) === $adminPassword)
             {
                 $_SESSION['admin'] = $data['admin_pseudo'];
-                echo 'Je suis administrateur <br />'; 
+                header('Location: http://localhost/Projet_4/'); 
             } 
             
             else 
             {
-                echo 'Je ne suis pas administrateur';
+                echo 'Identifiant ou mot de passe incorrect';
             }
         }
     }

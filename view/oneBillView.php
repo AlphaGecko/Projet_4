@@ -1,13 +1,21 @@
 <?php $title = htmlspecialchars($bill['title']); ?>
 
-<?php ob_start(); ?>
+<?php ob_start();
+
+if(isset($_SESSION['admin']))
+{
+?>
+    <p>Aperçu du billet tel qu'il est vu par un utilisateur. <a href="index.php">Retour au panneau administateur</a></p>
+<?php
+}
+?>
 
 <p><a href="index.php">Retour à la liste des billets</a></p>
 
 <div class="news">
     <h2><?= htmlspecialchars($bill['title']) ?></h2>
 
-    <h3>Par <?= htmlspecialchars($bill['author']) ?> le <em><?= $bill['creation_date'] ?></em></h3>
+    <h3>Par <?= htmlspecialchars($bill['author']) ?> le <em><?= $bill['creation_date_fr'] ?></em></h3>
     <p>
         <?= $bill['content'] ?>
     </p>

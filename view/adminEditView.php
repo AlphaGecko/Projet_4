@@ -1,7 +1,7 @@
 <?php 
 if (!isset($_SESSION['admin'])) 
 {
-    header('Location: http://localhost/Projet_4/index.php');
+    header('Location: http://localhost/Projet_4/');
 }
 else
 {  

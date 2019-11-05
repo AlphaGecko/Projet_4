@@ -6,21 +6,24 @@ class BillManager extends DbManager
 {
     public function getBills()
     {
-        $bills = DbManager::dbConnect()->query('SELECT * FROM bills ORDER BY creation_date DESC LIMIT 0, 5');
+        $bills = DbManager::dbConnect()->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') 
+        AS creation_date_fr, author FROM bills ORDER BY creation_date DESC LIMIT 0, 10');
 
         return $bills;
     }
 
     public function getBillsForAdmin() 
     {
-        $allBills = DbManager::dbConnect()->query('SELECT * FROM bills ORDER BY creation_date DESC');
+        $allBills = DbManager::dbConnect()->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') 
+        AS creation_date_fr, author FROM bills ORDER BY creation_date DESC');
 
         return $allBills;
     }
 
     public function getOneBill($billId)
     {
-        $req = DbManager::dbConnect()->prepare('SELECT * FROM bills WHERE id = ?');
+        $req = DbManager::dbConnect()->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') 
+        AS creation_date_fr, author FROM bills WHERE id = ?');
         $req->execute(array($billId));
 
         $bill = $req->fetch(PDO::FETCH_ASSOC);

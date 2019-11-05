@@ -22,7 +22,7 @@ class UserController {
     {
         $billManager = new BillManager(); 
         $bills = $billManager->getBills(); 
-    
+
         require('view/billsView.php');
     }
     
