@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="fr">
+
     <head>
         <meta charset="utf-8" />
         <title><?= $title ?></title>
@@ -7,14 +9,13 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
         <!-- Google fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Caveat|Titillium+Web&display=swap" rel="stylesheet">
-
-        <link href="public/css/style.css" rel="stylesheet" /> 
+        <link href="https://fonts.googleapis.com/css?family=Caveat|Niconne|Titillium+Web&display=swap" rel="stylesheet">
 
         <!-- Tiny MCE -->
         <script src="https://cdn.tiny.cloud/1/trvvr2zcgtzs9oiv88nw7oainebtfn4zeag01li68yewenve/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
         <script>tinymce.init({selector:'.tinymce'});</script>
 
+        <link href="public/css/style.css" rel="stylesheet" /> 
     </head>
         
     <body>
@@ -34,4 +35,5 @@
 
         <script src="public/js/script.js"></script>
     </body>
+    
 </html>

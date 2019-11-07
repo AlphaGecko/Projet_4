@@ -3,52 +3,66 @@
 <?php ob_start(); ?>
 
 <header>
-        <h1>
-            Billet simple pour l'alaska
-        </h1>
+    <div id="header_container">
+        <div id="main_title">
+            <h1>Billet simple pour l 'Alaska</h1>
+        </div>
 
-        <hr class="my-2">
+        <div id="hook">
+            <h2> 
+                <strong>"</strong> Je vous propose un nouveau billet chaque jour, narrant l'histoire passionnante d'un jeune homme débutant 
+                une nouvelle vie en Alaska.<strong>"</strong>
+            </h2>
+        </div>
 
-        <h2> 
-            <strong>"</strong> Je vous propose un nouveau billet chaque jour, narrant l'histoire passionnante d'un jeune homme débutant 
-            une nouvelle vie en Alaska.<strong>"</strong> <br />
-        </h2>
-
-        <p>Forteroche Jean</p>
+        <div id="alaska">
+            <img src="public/images/alaska.jpg">
+        </div>
+    </div>
 </header>
 
 <?php
 while ($data = $bills->fetch())
 {
-
 ?>
-    <div class="row">
-        <div class="col-sm-offset-1 col-sm-1"></div>
-        <div class="news col-sm-10 bill">
-            <h3><?= htmlspecialchars($data['title']) ?></h3>
+    <div class="container">
+        <div class="bill">
+            <h3 class="bill_title"><?= htmlspecialchars($data['title']) ?></h3>
 
-            <h4>Par <?= htmlspecialchars($data['author']) ?> le <em><?= $data['creation_date_fr'] ?></em></h4>
-            <p>
+            <h4 class="by">Par <?= htmlspecialchars($data['author']) ?> le <em><?= $data['creation_date_fr'] ?></em></h4>
+            <div class="bill_content">
                 <?php 
                 if (strlen($data['content']) > 3000) 
-                {
+                {  
+                    $maxLenght = 3000;
+                    $billOverview = substr($data['content'], 0, $maxLenght);
+
+                    // Boucle permettant de soustraire des éléments jusqu'à la fin d'un balises de tinyMCE.
+
+                    while (substr($billOverview, -1) !== '>' )
+                    {
+                        $billOverview = substr($data['content'], 0, $maxLenght--);
+                    }
+                    
                 ?>
-                    <?= substr($data['content'], 0, 3000) ?> [...] <br />
-                    <em><a href="index.php?action=bill&amp;id=<?= $data['id'] ?>" class="full_view_link">Voir la suite du billet et les commentaires -></a></em>
+                    <?= $billOverview ?> <p class="suspension_points">[...]</p> <br />
+                    <p>
+                        <a href="index.php?action=bill&amp;id=<?= $data['id'] ?>" class="full_view_link">Voir la suite du billet et les commentaires -></a>
+                    </p>
                 <?php
                 }
-                elseif(strlen($data['content']) < 3000)
+                else
                 {
                 ?>
                     <?= $data['content'] ?> <br />
-                    <em><a href="index.php?action=bill&amp;id=<?= $data['id'] ?>" class="full_view_link">Voir les commentaires -></a></em>
+                    <p>
+                        <a href="index.php?action=bill&amp;id=<?= $data['id'] ?>" class="full_view_link">Voir les commentaires -></a>
+                    </p>
                 <?php
                 } 
                 ?>      
                 <br/> 
-            </p>
-
-            
+            </div>
         </div>
     </div>
 

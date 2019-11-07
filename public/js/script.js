@@ -1,3 +1,6 @@
+// loading screen 
+
+
 // front espace administrateur
 
 const addButton = $('#add_button');
@@ -34,3 +37,14 @@ deleteComment.click(function() {
         event.preventDefault();
     }
 });
+
+// Gestion du nombre max de caractères d'un commentaire utilisateur 
+
+
+
+
+
+
+
+
+

@@ -10,18 +10,27 @@ else
 
 <?php ob_start(); ?>
 
+<p><a href="http://localhost/projet_4/"  class="back">Retour au panneau administrateur</a></p>
+
 <?php 
 while ($comment = $reports->fetch())
 {
     if ($comment['report'] > 0)
     {
     ?> 
-         <p>
-            <strong><?= htmlspecialchars($comment['comment_author']) ?></strong> le <?= $comment['comment_date_fr'] ?>
-        </p>
+         <div class="container one_comment">
+            <p class="commented_by">
+                Par <strong><?= htmlspecialchars($comment['comment_author']) ?></strong> le <em> <?= $comment['comment_date_fr'] ?> </em>
 
-        <?= $comment['comment'] ?>
-        <a href="http://localhost/projet_4/index.php?action=deleteCommentValidation&amp;commentId=<?= $comment['id'] ?>"  class="delete_comment"><input type="button" value="Effacer le commentaire"></a>
+                <hr class="md-2" />
+            </p>
+
+            <?= $comment['comment'] ?>
+        </div>
+
+        <div class="admin_buttons_container">
+            <a href="http://localhost/projet_4/index.php?action=deleteCommentValidation&amp;commentId=<?= $comment['id'] ?>"  class="delete_comment"><input type="button" value="Effacer le commentaire" class="delete_comment_button"></a>
+        </div>
     <?php
     }
 }

@@ -12,7 +12,7 @@ else
         <div id="edit_container">
             <form action="index.php?action=editionValidation&amp;id=<?= $_GET['id'] ?>" method="post">
                 <div>
-                    <label for="author">Auteur : </label><?= $_SESSION['admin'] ?>
+                    <label for="author" id="author">Auteur : </label><span id="author_input"><?= $_SESSION['admin'] ?></span>
                 </div>
 
                 <div>
@@ -25,9 +25,9 @@ else
                     <textarea id="newBill" name="content" class="tinymce"> <?= $bill['content'] ?> </textarea>
                 </div>
 
-                <input type="submit" name="valider" value="Valider les modifications" /> 
-                <a href="index.php?action=deleteValidation&amp;id=<?=$_GET["id"]?>" class="delete_button"><input type="button" value="Supprimer"/></a>
-                <a href="http://localhost/Projet_4"><input type="button" class="Annuler" value="Annuler"/>
+                <input type="submit" name="valider" value="Valider les modifications" class="add_button" /> 
+                <a href="index.php?action=deleteValidation&amp;id=<?=$_GET["id"]?>"><input type="button" value="Supprimer" class="delete_button"/></a>
+                <a href="http://localhost/Projet_4"><input type="button" class="cancel_button" value="Annuler"/>
             </form>
         </div>
 

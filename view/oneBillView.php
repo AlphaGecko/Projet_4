@@ -10,51 +10,62 @@ if(isset($_SESSION['admin']))
 }
 ?>
 
-<p><a href="index.php">Retour à la liste des billets</a></p>
+<div class="container">
+    <div class="bill">
+        <h3 class="bill_title"><?= htmlspecialchars($bill['title']) ?></h3>
 
-<div class="news">
-    <h2><?= htmlspecialchars($bill['title']) ?></h2>
+        <h4 class="by">Par <?= htmlspecialchars($bill['author']) ?> le <em><?= $bill['creation_date_fr'] ?></em></h4>
 
-    <h3>Par <?= htmlspecialchars($bill['author']) ?> le <em><?= $bill['creation_date_fr'] ?></em></h3>
-    <p>
-        <?= $bill['content'] ?>
-    </p>
+        <div class="bill_content">   
+            <?= $bill['content'] ?>
+        </div>
+    </div>
 </div>
 
-<h2>Commentaires</h2>
+<p><a href="index.php" class="back">Retour à la liste des billets</a></p>
 
-<!-- Affichage d'un formulaire pour écrire un nouveau commentaire -->
+<div class="comments_container">
 
-<form action="index.php?action=addComment&amp;id=<?= $bill['id'] ?>" method="post">
-    <div>
-        <label for="author">Auteur</label><br />
-        <input type="text" id="author" name="author" />
-    </div>
-    <div>
-        <label for="comment">Commentaire</label><br />
-        <textarea id="comment" name="comment" class="tinymce"></textarea>
-    </div>
-    <div>
-        <input type="submit" />
-    </div>
-</form>
+    <h2 class="comment_title">Commentaires</h2>
 
-<?php
+    <!-- Affichage d'un formulaire pour écrire un nouveau commentaire -->
 
-while ($comment = $comments->fetch())
-{
-?>
-    <p>
-        <strong><?= htmlspecialchars($comment['comment_author']) ?></strong> le <?= $comment['comment_date_fr'] ?>
-    </p>
-
-    <?= $comment['comment'] ?>
-    <form action="index.php?action=report&amp;reportId=<?= $comment['id'] ?>&amp;id=<?= $_GET['id'] ?>" method="post">
-        <input type="submit" value="Signaler ce commentaire" class="report">
+    <form action="index.php?action=addComment&amp;id=<?= $bill['id'] ?>" method="post">
+        <div>
+            <label for="author" id="author">Auteur</label><br />
+            <input type="text" id="author_input" name="author" />
+        </div>
+        <div>
+            <label for="comment" id="comment">Commentaire</label><br />
+            <textarea id="comment_input" name="comment" class="tinymce"></textarea>
+        </div>
+        <div class="comment_submit_container">
+            <span><input type="submit" id="comment_submit" /></span>
+        </div>
     </form>
-<?php
-}
-?>
+
+    <?php
+
+    while ($comment = $comments->fetch())
+    {
+    ?>
+        <div class="container one_comment">
+            <p class="commented_by">
+                Par <strong><?= htmlspecialchars($comment['comment_author']) ?></strong> le <em> <?= $comment['comment_date_fr'] ?> </em>
+
+                <hr class="md-2" />
+
+                <form action="index.php?action=report&amp;reportId=<?= $comment['id'] ?>&amp;id=<?= $_GET['id'] ?>" method="post">
+                    <input type="submit" value="Signaler ce commentaire" class="report">
+                </form>
+            </p>
+
+            <?= $comment['comment'] ?>
+        </div>
+    <?php
+    }
+    ?>
+</div>
 
 <?php $content = ob_get_clean(); ?>
 

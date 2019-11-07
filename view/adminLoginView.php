@@ -2,22 +2,35 @@
 
 <?php ob_start(); ?>
 
-<h1>Connexion administrateur</h1>
+<div id="log_container">
 
-<form action="index.php?action=admin" method="post">
-    <div>
-        <label for="admin_name">Identifiant</label><br />
-        <input type="text" id="identifiant" name="admin_id" required />
-    </div>
-    <div>
-        <label for="admin_password">Mot de passe</label><br />
-        <input type="password" id="mdp" name="admin_password" required />
-    </div>
-    <div>
-        <input type="submit" id="checkAdmin"/>
-    </div>
-</form>
+    <h1 id="connexion">Connexion administrateur</h1>
 
-<p><a href="index.php">Retour à la liste des billets</a></p>
+    <form action="index.php?action=admin" method="post">
 
-<?= $content = ob_get_clean(); ?>
+        <div>
+            <label for="admin_name">Identifiant</label><br />
+            <input type="text" id="identifiant" name="admin_id" required />
+        </div>
+
+        <div>
+            <label for="admin_password">Mot de passe</label><br />
+            <input type="password" id="mdp" name="admin_password" required />
+        </div>
+
+        <div>
+            <input id="check_admin" type="submit"/>
+        </div>
+
+    </form>
+
+    <p><a href="index.php" class="back">Retour à la liste des billets</a></p>
+
+</div>
+
+<?php $content = ob_get_clean(); ?>
+
+<?php 
+require('header.php');
+require('templates/template.php'); 
+?>

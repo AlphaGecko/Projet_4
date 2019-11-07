@@ -7,8 +7,7 @@ class AdminController extends UserController
     {
         $datas = new ConnexionManager;
         $this->adminDatas = $datas->getAdmin();
-
-
+        
         require_once('view/adminLoginView.php');
     }
 

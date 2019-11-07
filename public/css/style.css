@@ -1,36 +1,167 @@
-/* decoration cancel */ 
+/* browser decoration cancel */ 
 
-a, a:link, a:visited { 
-    text-decoration: none !important; 
+a:link, a:visited { 
+    text-decoration: inherit ; 
     color: black;
 } 
 
-/* Fonts and sizes */
 
-h1, h1 strong, h2, .forteroche, nav a, header p {
+
+
+
+
+/* Fonts */
+
+
+
+
+
+
+h2 strong, nav a, header p {
     font-family: 'Caveat', cursive;
+}
+
+#main_title h1 {
+    font-family: 'Niconne', cursive;
+    font-size: 3.5em;
 }
 
 nav a {
     font-size: 1.6em;
 }
 
-.forteroche {
+#hook h2 {
+    color: #333;
+    font-family: 'Caveat', cursive;
+}
+
+#sum {
+    font-size: 1.5em;
+}
+
+#signature {
+    font-size: 1.2em;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+header {
+    color: white;
+}
+
+.bill_title {
+    font-size: 3em;
+    font-family: 'Caveat', cursive;
+}
+
+.by {
+    font-size: 1.2em;
+    font-family: 'Caveat', cursive;
+}
+
+.back, .full_view_link {
+    font-family: 'Titillium Web', sans-serif;
+    color: rgb(128, 170, 255) !important;
+    font-size: 1.2em; 
+}
+
+.comment_title {
+    font-family: 'Caveat', cursive;
+    color: #333;
+    font-size: 3em;
+}
+
+
+#author_input {
+    font-family: 'Caveat', cursive;
     font-size: 1.2em;
 }
 
-* {
-    font-family: 'Titillium Web', sans-serif;   
+
+#comment_submit {
+    font-size: 1.5em; 
+    font-family: 'Caveat', cursive;
 }
+
+input {
+    font-family: 'Caveat', cursive;
+    font-size: 1.5em;
+}
+
+label {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1.5em; 
+}
+
+.commented_by {
+    font-size: 1em; 
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.one_comment strong {
+    font-size: 1.5em; 
+    font-family: 'Caveat', cursive;
+}
+
+.report {
+    font-size: 1em;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+#connexion, .validation {
+    font-size: 3em; 
+    font-family: 'Caveat', cursive;
+}
+
+#admin_panel_title_container h1 {
+    font-family: 'Niconne', cursive;
+    font-size: 3em;
+}
+
+#alert {
+    font-size: 1.2em;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.suspension_points {
+    font-size: 1.5em;
+    font-family: 'Caveat', cursive;
+}
+
 
 
 /* main style */
 
+
+
+
+
+
+
 .content {
-    padding-top: 150px;
+    padding-top: 140px;
 }
 
+input {
+    border-radius: 5px;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+* {
+    transition: opacity 1s linear;
+}
+
+
+
 /* user nav */ 
+
+
+
+
+
+
 
 nav {
     border-bottom: 3px groove #333;
@@ -40,9 +171,11 @@ nav {
     z-index: 1000;
     box-shadow: 2px 0px 10px grey;
     height: 120px;
+    display: flex;
 }
 
-.menu a {
+
+#menu a {
     border: 2px solid #555;
     padding: 10px; 
     border-radius: 10%;
@@ -50,19 +183,25 @@ nav {
     margin: 10px;
 }
 
-.menu a:hover {
+#menu a:hover {
     background-color: hsl(210, 100%, 85%);
     box-shadow: 5px 5px 5px grey;
     transition: box-shadow 0.5s linear;
 }
 
-.menu {
+#menu {
     margin-top: 40px;
+    text-align: center;
+    width: 100%;
 }
 
 #logo {
     max-height: 100px;
-    padding-left: 20px;
+    padding-left: 10px;
+}
+
+.content {
+    z-index: -100;
 }
 
 
@@ -73,9 +212,7 @@ nav {
 
 
 
-
-
-/* Users homepage  */ 
+/* Users */ 
 
 
 
@@ -87,14 +224,266 @@ nav {
 
 /* header */ 
 
-.my-2 {
-    max-width: 50%;
+
+
+
+
+
+
+#header_container {
+    position: relative;
+    height: 600px;
+    background: linear-gradient(rgba(255,255,255,0) 40%, rgba(255,255,255, 1) 80%);
 }
+
+#main_title {
+    text-align: center;
+}
+
+#main_title h1 {
+    text-shadow:0 0 5px black;
+}
+
+#hook {
+    position: absolute; 
+    width: 68%;
+    height: 30%; 
+    bottom: 100px; 
+    left: 16%; 
+    text-align: center;
+}
+
+#hook h2 {
+    text-shadow:0 0 5px white;
+}
+
+#alaska {
+    position: absolute; 
+    width: 100%; 
+    height: 600px;
+    overflow: hidden;
+    top: 0;
+    z-index: -10;
+}
+
+#alaska img {
+    width: 100%; 
+}
+
+
+
+
+
+
+
+/* Bills */ 
+
+
+
+
+
+
+
+.bill {
+    border: 3px groove #555;
+    border-radius: 20px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+    box-shadow: 5px 5px 10px #777;
+}
+
+.bill_title {
+    text-align: center;
+}
+
+.by {
+    text-align: right;
+    border-bottom: 2px dashed #666;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.bill_content {
+    padding-right: 10px; 
+    padding-left: 10px;
+    text-align: justify;
+}
+
+.back {
+    margin-left: 10px;
+    margin-bottom: 10px; 
+}
+
+.back:hover, .full_view_link:hover {
+    text-decoration: underline;
+}
+
+#edit_container {
+    text-align: center;
+}
+
+
+
+
+
+
+/* Comments */ 
+
+
+
+
+
+
+
+.comments_container {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#comment_submit {
+    margin-top: 5px; 
+    margin-bottom: 20px;
+    padding: 5px 20px 5px 20px;
+    border-radius: 10px; 
+    background-color: white;
+    text-align: center;
+    align-self: center;
+}
+
+#comment_submit_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#comment_submit:hover {
+    background: rgb(128, 170, 255) !important;
+}
+
+.one_comment {
+    border-top: 3px dashed #666;
+    padding-top: 18px;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.one_comment strong {
+    padding-right: 3px;
+}
+
+.report {
+    position: absolute;
+    top: 10px; 
+    right: 5px;
+    border-radius: 10px; 
+    background-color:rgb(255, 51, 0, 0.2);
+}
+
+.report:hover {
+    background-color: rgb(255, 51, 0, 0.8);
+}
+
+
+
+
+
+/* login */ 
+
+
+
+
+
+#log_container {
+    text-align: center;
+}
+
+#check_admin {
+    margin-top: 5px; 
+    margin-bottom: 20px;
+    padding: 5px 20px 5px 20px;
+    border-radius: 10px; 
+    background-color: white;
+    text-align: center;
+}
+
+#check_admin:hover {
+    background: rgb(128, 170, 255) !important;
+}
+
+
+
+
+
+
+/* Validation */ 
+
+
+
+#validation_container {
+    text-align: center;
+}
+
+
+
+
+
+/* admin */ 
+
+
+
+
+
+
+
+/* admin header */ 
+
+
+
+
+#admin_panel_title_container {
+    text-align: center;
+    width: 100%;
+    padding-top: 20px;
+}
+
+#admin_panel_title_container h1 {
+    border: 2px dashed #666;
+    margin-left: 10%; 
+    margin-right: 10%
+}
+
+#admin_menu {
+    margin-top: 40px;
+    text-align: center;
+}
+
+#admin_menu a {
+    border: 2px solid #555;
+    padding: 10px; 
+    border-radius: 10%;
+    box-shadow: 0px 0px 2px grey;
+    margin: 10px;
+}
+
+#admin_menu a:hover {
+    background-color: hsl(210, 100%, 85%);
+    box-shadow: 5px 5px 5px grey;
+    transition: box-shadow 0.5s linear;
+}
+
+
+
+
+
 
 /* Admin panel */ 
 
+
+
+
+
 #request_box {
-    min-height: 500px; 
+    min-height: 200px; 
     border: 2px groove #333; 
     margin: 20px;
 }
@@ -104,4 +493,53 @@ nav {
     position: absolute;
     z-index: 0;
     visibility: hidden ;
+    text-align: center;
 }
+
+#add_button, #list_button, .edit_button, .comment_button, .delete_comment_button, .add_button, .delete_button, .cancel_button {
+    margin-top: 5px; 
+    margin-bottom: 20px;
+    padding: 5px 20px 5px 20px;
+    border-radius: 10px; 
+    background-color: white;
+    text-align: center;
+}
+
+#add_button:hover, #list_button:hover, .edit_button:hover, .comment_button:hover, .add_button:hover, .delete_button:hover, .cancel_button:hover {
+    background: rgb(128, 170, 255) !important;
+}
+
+.delete_comment_button:hover {
+    background-color: rgb(255, 51, 0, 0.8);
+}
+
+.admin_buttons_container {
+    text-align: center;
+}
+
+#alert {
+    text-align: center;
+}
+
+#bill_submit {
+    margin-top: 5px; 
+    margin-bottom: 20px;
+    padding: 5px 20px 5px 20px;
+    border-radius: 10px; 
+    background-color: white;
+    text-align: center;
+    align-self: center;
+}
+
+#bill_submit:hover {
+    background: rgb(128, 170, 255) !important;
+}
+
+.separation {
+    background-color: #333;
+    height: 4px; 
+    width: 100%;
+    margin: 20px 0 20px 0;
+}
+
+

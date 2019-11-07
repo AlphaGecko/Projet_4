@@ -7,7 +7,7 @@ class CommentManager
     
     public function getComments($billId)
     {
-        $comments = DbManager::dbConnect()->prepare('SELECT id, comment_author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') 
+        $comments = DbManager::dbConnect()->prepare('SELECT id, comment_author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') 
         AS comment_date_fr FROM comments WHERE bill_id = ? ORDER BY comment_date DESC');
 
         $comments->execute(array($billId));

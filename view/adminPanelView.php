@@ -24,9 +24,13 @@ while ($reportList = $reports->fetch())
 ?>
 
 <div id="adminChoice">
-    <input type="button" id="add_button" value="Ajouter un billet" />
-    <input type="button" id="list_button" value="Liste des billets" />
-    <span id="alert">Il y'a actuellement 
+
+    <div class="admin_buttons_container">
+        <input type="button" id="add_button" value="Ajouter un billet" />
+        <input type="button" id="list_button" value="Liste des billets" />
+    </div>
+
+    <div id="alert">Il y'a actuellement 
         <span class="btn btn-warning">
             <a href="index.php?action=reportedComments">
                 <span class="badge">
@@ -36,7 +40,8 @@ while ($reportList = $reports->fetch())
             </a>
         </span> 
         signalé(s).
-    </span>
+    </div>
+
 </div>
 
 <div id="request_box">
@@ -45,7 +50,7 @@ while ($reportList = $reports->fetch())
         <form action="index.php?action=newBillValidation" method="post">
 
             <div>
-                <label for="author">Auteur : </label><?= $_SESSION['admin'] ?>
+                <label for="author" id="author">Auteur :</label> <span id="author_input"><?= $_SESSION['admin'] ?>
             </div>
 
             <div>
@@ -58,7 +63,7 @@ while ($reportList = $reports->fetch())
                 <textarea id="newBill" name="content" class="tinymce"></textarea>
             </div>
 
-            <input type="submit" name="valider" />
+            <input type="submit" name="valider" id="bill_submit" />
             
         </form>
     </div>
@@ -68,41 +73,55 @@ while ($reportList = $reports->fetch())
     while ($data = $bills->fetch())
     {
     ?>
-        <div class="row">
-            <div class="col-sm-offset-1 col-sm-1"></div>
-            <div class="news col-sm-10 rounded-right border shadow-sm p-3 mb-5 bg-white">
-                <h3><?= htmlspecialchars($data['title']) ?></h3>
+        <div class="container">
+            <h3 class="bill_title"><?= htmlspecialchars($data['title']) ?></h3>
 
-                <h4>Par <?= htmlspecialchars($data['author']) ?> le <em><?= $data['creation_date_fr'] ?></em></h4>
-                <p>
-                    <?php 
-                    if (strlen($data['content']) >= 1500) 
+            <h4 class="by">Par <?= htmlspecialchars($data['author']) ?> le <em><?= $data['creation_date_fr'] ?></em></h4>
+
+            <div class="bill_content">
+            <?php 
+                if (strlen($data['content']) > 3000) 
+                {  
+                    $maxLenght = 3000;
+                    $billOverview = substr($data['content'], 0, $maxLenght);
+
+                    // Boucle permettant de soustraire des éléments jusqu'à la fin d'un balises de tinyMCE.
+
+                    while (substr($billOverview, -1) !== '>' )
                     {
-                    ?>
-                        <?= substr($data['content'], 0, 1500) ?> [...] <br />
-                        <em><a href="index.php?action=bill&amp;id=<?= $data['id'] ?>" class="full_view_link">Voir la suite du billet -></a></em>
-                    <?php
+                        $billOverview = substr($data['content'], 0, $maxLenght--);
                     }
-                    elseif(strlen($data['content']) < 1500)
-                    {
-                    ?>
-                        <?= $data['content'] ?> <br />
-                        <em><a href="index.php?action=bill&amp;id=<?= $data['id'] ?>" class="full_view_link">Voir le billet -></a></em>
-                    <?php
-                    } 
-                    ?>     
-                    <br/> 
-                </p>
+                    
+                ?>
+
+                    <?= $billOverview ?><p class="suspension_points">[...]</p> <br />
+
+                <?php
+                }
+                else
+                {
+                ?>
+                    <?= $data['content'] ?> <br />
+                <?php
+                } 
+                ?>     
             </div>
 
+        </div>
+
+        <div class="admin_buttons_container">
             <a href="index.php?action=editBill&amp;id=<?= $data['id'] ?>">
                 <input type="button" class="edit_button" value="Modifier ou supprimer le billet"/>
             </a>
 
+            <br />
+
             <a href="index.php?action=editComment&amp;id=<?= $data['id']?>">
-                <input type="button" class="comment_button" value="Gestion des commentaires"/>
+                <input type="button" class="comment_button" value="Voir le billet complet et les commentaires"/>
             </a>
         </div>
+
+        <div class="separation"></div>
     <?php
     }
     $bills->closeCursor();
