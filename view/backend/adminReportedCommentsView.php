@@ -15,7 +15,7 @@ else
 <?php 
 while ($comment = $reports->fetch())
 {
-    if ($comment['report'] > 0)
+    if (isset($comment['report'])  && filter_var($comment['report'], FILTER_VALIDATE_INT) > 0)
     {
     ?> 
          <div class="container one_comment">
@@ -43,6 +43,5 @@ while ($comment = $reports->fetch())
 
 <?php 
 require('adminHeader.php');
-require('footer.php');
 require('templates/template.php'); 
 ?>

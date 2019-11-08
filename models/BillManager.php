@@ -1,10 +1,10 @@
 <?php
 
-require_once("models/DbManager.php");
+require_once("DbManager.php");
 
-class BillManager extends DbManager
+class BillManager
 {
-    public function getBills()
+    public function getFiveBills()
     {
         $bills = DbManager::dbConnect()->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') 
         AS creation_date_fr, author FROM bills ORDER BY creation_date DESC LIMIT 0, 5');

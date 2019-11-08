@@ -11,7 +11,7 @@
         <div id="menu">
             <a href="index.php">Page d'accueil</a>
             <a href="index.php?action=allBills">Toute l'histoire</a>
-            <a href="http/localhost/projet_4/biographie.html">Biographie</a> 
+            <a href="https://en.wikipedia.org/wiki/The_Auteurs" target="_blank">Biographie</a> 
         </div>
     </p>
 </nav>

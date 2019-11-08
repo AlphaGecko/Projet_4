@@ -1,7 +1,6 @@
 <?php
 
-require_once("models/DbManager.php");
-
+require_once("DbManager.php");
 class CommentManager
 {
     
@@ -38,6 +37,12 @@ class CommentManager
         $deleteComment->execute(array($commentId));
     }
 
+    public function deleteCommentsWithBill($billId)
+    {
+        $deleteComment = DbManager::dbConnect()->prepare('DELETE FROM comments WHERE bill_id = ?');
+        $deleteComment->execute(array($billId));
+    }
+
     public function updateReport($commentId)
     {  
         $updateComment = DbManager::dbConnect()->prepare('UPDATE comments SET report = report + 1 WHERE id = ?');
@@ -45,6 +50,14 @@ class CommentManager
     }
 
     public function getReportedComments()
+    {
+        $allComments = DbManager::dbConnect()->query('SELECT id, comment_author, comment, report, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') 
+        AS comment_date_fr FROM comments ORDER BY comment_date DESC'); 
+        
+        return $allComments;
+    }
+
+    public function allComments()
     {
         $allComments = DbManager::dbConnect()->query('SELECT id, comment_author, comment, report, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') 
         AS comment_date_fr FROM comments ORDER BY comment_date DESC'); 

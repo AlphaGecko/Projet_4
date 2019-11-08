@@ -1,5 +1,10 @@
 // loading screen 
 
+window.onload = function(){ 
+    $('#main').css({'opacity': 1});
+    $('#loader').css({'opacity': 0});
+};
+
 
 // front espace administrateur
 
@@ -10,13 +15,17 @@ const addContainer = $('#add_container');
 const listContainer = $('#list_container');
 
 addButton.click(function() { 
-    addContainer.css({ 'opacity': 1, 'z-index': 100, 'position' : 'relative', 'visibility' : 'visible' });
-    listContainer.css({ 'opacity': 0, 'z-index': 0, 'position' : 'absolute', 'visibility' : 'hidden' });
+    addContainer.css({'z-index': 100, 'position' : 'relative'});
+    addContainer.fadeIn(1000);
+
+    listContainer.css({ 'display' : 'none', 'z-index': 0, 'position' : 'absolute'});
 });
 
 listButton.click(function() { 
-    addContainer.css({ 'opacity': 0, 'z-index': 0, 'position' : 'absolute', 'visibility' : 'hidden' });
-    listContainer.css({ 'opacity': 1, 'z-index': 100, 'position' : 'relative', 'visibility' : 'visible' });
+    listContainer.css({'z-index': 100, 'position' : 'relative'});
+    listContainer.fadeIn(1000);
+
+    addContainer.css({'display' : 'none', 'z-index': 0, 'position' : 'absolute'});
 });
 
 // Confirmation d'un effacement par l'admin
@@ -37,13 +46,6 @@ deleteComment.click(function() {
         event.preventDefault();
     }
 });
-
-// Gestion du nombre max de caractères d'un commentaire utilisateur 
-
-
-
-
-
 
 
 

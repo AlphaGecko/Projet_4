@@ -1,14 +1,17 @@
 <?php $title = htmlspecialchars($bill['title']); ?>
 
-<?php ob_start();
+<?php 
 
-if(isset($_SESSION['admin']))
-{
-?>
-    <p>Aperçu du billet tel qu'il est vu par un utilisateur. <a href="index.php">Retour au panneau administateur</a></p>
-<?php
+
+if ($bill['id'] !== $_GET['id']) {
+    header('Location: http://localhost/Projet_4/index.php?action=error'); 
+    exit();
 }
-?>
+
+?> 
+
+<?php ob_start(); ?>
+
 
 <div class="container-fluid">
     <div class="bill">
@@ -33,7 +36,7 @@ if(isset($_SESSION['admin']))
     <form action="index.php?action=addComment&amp;id=<?= $bill['id'] ?>" method="post">
         <div>
             <label for="author" id="author">Auteur</label><br />
-            <input type="text" id="author_input" name="author" />
+            <input type="text" id="author_input" name="author" required />
         </div>
         <div>
             <label for="comment" id="comment">Commentaire</label><br />

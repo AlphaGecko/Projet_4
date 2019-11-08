@@ -31,7 +31,6 @@
 <?php $content = ob_get_clean(); ?>
 
 <?php 
-require('header.php');
-require('footer.php');
+require('view/frontend/header.php');
 require('templates/template.php'); 
 ?>

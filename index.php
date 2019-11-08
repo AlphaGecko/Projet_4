@@ -5,29 +5,40 @@
 <!-- ROUTEUR -->
 
 <?php
-require_once('controllers/UserController.php'); 
-require_once('controllers/AdminController.php'); 
+require_once('controllers/frontend/UserController.php'); 
+require_once('controllers/backend/AdminController.php'); 
 
 $userView = new UserController();
 $adminView = new AdminController();
 
 if (isset($_GET['action'])) {
 
-    if ($_GET['action'] === 'BillsList' || $_GET['action'] === 'allBills') 
+    try 
+    {
+
+    }   
+
+    catch(Exception $e) 
     { 
+        echo 'Erreur : ' . $e->getMessage();
+    }
+    
+    
+    if ($_GET['action'] === 'BillsList' || $_GET['action'] === 'allBills') 
+    {
         $userView->billsList();
     }
 
     elseif ($_GET['action'] === 'bill') 
     {
-        if (isset($_GET['id']) && $_GET['id'] > 0) 
+        if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT) > 0) 
         { 
             $userView->bills();
         }
 
         else 
         {
-            echo 'Erreur : aucun identifiant de billet envoyé';
+            header('Location: http://localhost/Projet_4/index.php?action=error');
         }
     }
 
@@ -35,7 +46,7 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] === 'addComment') 
     { 
 
-        if (isset($_GET['id']) && $_GET['id'] > 0) 
+        if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT) > 0) 
         {
 
             if (!empty($_POST['author']) && !empty($_POST['comment'])) 
@@ -45,13 +56,13 @@ if (isset($_GET['action'])) {
 
             else 
             {
-                echo 'Erreur : tous les champs ne sont pas remplis !';
+                trigger_error('Tous les champs ne sont pas remplis !', E_USER_NOTICE);
             }
         }
         
         else 
         {
-            echo 'Erreur : aucun identifiant de billet envoyé';
+            trigger_error('Aucun identifiant de billet n\'a été envoyé !', E_USER_WARNING);
         }
     }
 
@@ -78,32 +89,6 @@ if (isset($_GET['action'])) {
         }
     }
 
-    elseif($_GET['action'] === 'connexion') 
-    {
-        $userView->userLogin();
-        $data = $userView->userDatas->fetchAll();
-
-        foreach($data as $value)
-        {
-            $userNameList[$value['user_id']] = $value['user_name']; 
-            $userPasswordList[$value['user_id']] = $value['user_password']; 
-        }
-
-        if (isset($_POST['user_id']) && isset($_POST['user_password']))
-        {
-            if (in_array(htmlspecialchars($_POST['user_id']), $userNameList) 
-            && in_array(htmlspecialchars($_POST['user_password']), $userPasswordList))
-            {
-                echo 'Je suis un utilisateur';
-            }  
-            
-            else 
-            {
-                echo 'Je ne suis pas un utilisateur';
-            }
-        }
-    }
-
     elseif($_GET['action'] === 'newBillValidation')
     {
 
@@ -117,7 +102,7 @@ if (isset($_GET['action'])) {
         }
         else 
         {
-            echo 'erreur';
+            header('Location: http://localhost/Projet_4/index.php?action=error');
         }
     }
 
@@ -128,55 +113,90 @@ if (isset($_GET['action'])) {
 
     elseif ($_GET['action'] === 'editBill')
     {
-        if (isset($_GET['id']) && $_GET['id'] > 0) 
+        if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT) > 0) 
         { 
             $adminView->editBill();
+        } 
+        else 
+        {
+            header('Location: http://localhost/Projet_4/index.php?action=error');
         }
     }
 
     elseif($_GET['action'] === 'editionValidation')
     {
-        if (isset($_GET['id']) && $_GET['id'] > 0) 
+        if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT) > 0) 
         {
             $adminView->editionValidation($_GET['id']);
+        }
+        else 
+        {
+            header('Location: http://localhost/Projet_4/index.php?action=error');
         }
     }
 
     elseif($_GET['action'] === 'deleteValidation')
     {
-        if (isset($_GET['id']) && $_GET['id'] > 0) 
+        if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT) > 0) 
         {
             $adminView->deleteValidation($_GET['id']);
+        }
+        else 
+        {
+            header('Location: http://localhost/Projet_4/index.php?action=error');
         }
     }
 
     elseif($_GET['action'] === 'editComment')
     {
-        if (isset($_GET['id']) && $_GET['id'] > 0) 
+        if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT) > 0) 
         {
             $adminView->adminBills();
+        }
+        else 
+        {
+            header('Location: http://localhost/Projet_4/index.php?action=error');
         }
     }
 
     elseif($_GET['action'] === 'deleteCommentValidation')
     {
-        if (isset($_GET['commentId']) && $_GET['commentId'] > 0) 
+        if (isset($_GET['commentId']) && filter_var($_GET['commentId'], FILTER_VALIDATE_INT) > 0) 
         {
             $adminView->deleteCommentValidation($_GET['commentId']);
+        }
+        else 
+        {
+            header('Location: http://localhost/Projet_4/index.php?action=error');
         }
     }
 
     elseif($_GET['action'] === 'report')
     {
-        if(isset($_GET['reportId']) && $_GET['reportId'] > 0)
+        if(isset($_GET['reportId']) && filter_var($_GET['reportId'], FILTER_VALIDATE_INT) > 0)
         {
             $userView->report($_GET['reportId']);
         }
+        else 
+        {
+            header('Location: http://localhost/Projet_4/index.php?action=error');
+        }
     }
+
+    elseif($_GET['action'] === 'legal')
+    {
+        $userView->legal();
+    }
+
 
     elseif($_GET['action'] === 'reportedComments')
     {
         $adminView->allReportedComments();
+    }
+
+
+    else {
+        $userView->error();
     }
 
 }
@@ -187,7 +207,6 @@ else if (isset($_SESSION['admin']))
 {
     $adminView->adminPanel();
 }
-
 
 else 
 {

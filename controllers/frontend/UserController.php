@@ -15,7 +15,7 @@ class UserController {
         $datas = new ConnexionManager;
         $this->userDatas = $datas->getUser();
 
-        require('view/userLoginView.php');
+        require('view/frontend/userLoginView.php');
     }
 
     public function billsList()
@@ -24,14 +24,14 @@ class UserController {
 
         if (!isset($_GET['action']))
         {
-            $bills = $billManager->getBills();
-            require('view/billsView.php');
+            $bills = $billManager->getFiveBills();
+            require('view/frontend/billsView.php');
         }
         
         elseif($_GET['action'] === 'allBills')
         {
             $bills = $billManager->getBillsList();
-            require('view/allBillsView.php');
+            require('view/frontend/allBillsView.php');
         }
        
     }
@@ -40,11 +40,10 @@ class UserController {
     {
         $billManager = new BillManager();
         $commentManager = new CommentManager();
-    
         $bill = $billManager->getOneBill($_GET['id']);
         $comments = $commentManager->getComments($_GET['id']);
     
-        require('view/oneBillView.php');
+        require('view/frontend/oneBillView.php');
     }
     
     public function addComment($billId, $author, $comment)
@@ -66,7 +65,16 @@ class UserController {
         $commentManager = new CommentManager(); 
         $commentManager->updateReport($commentId);
 
-        require('view/validationView.php');
+        require('view/frontend/validationView.php');
+    }
+
+    public function error() 
+    {
+        require('view/frontend/errorView.php');
+    }
+
+    public function legal() {
+        require('view/frontend/legalView.php');
     }
 }
 

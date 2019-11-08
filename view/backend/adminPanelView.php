@@ -138,6 +138,5 @@ while ($reportList = $reports->fetch())
 
 <?php 
 require('adminHeader.php');
-require('footer.php');
 require('templates/template.php'); 
 ?>

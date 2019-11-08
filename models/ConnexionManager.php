@@ -1,6 +1,6 @@
 <?php 
 
-require_once('dbManager.php');
+require_once('DbManager.php');
 class ConnexionManager
 {
 

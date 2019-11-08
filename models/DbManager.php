@@ -3,19 +3,19 @@
 abstract class DbManager 
 {
 
-    static private $host = 'localhost';
-    static private $dbname = 'blog';
-    static private $log = 'root'; 
-    static private $password = '';
+    static private $_host = 'localhost';
+    static private $_dbname = 'blog';
+    static private $_log = 'root'; 
+    static private $_password = '';
 
     static public function dbConnect()
     {
         $db = new PDO(
-            'mysql:host='. self::$host 
-            .';dbname=' . self::$dbname 
+            'mysql:host='. self::$_host 
+            .';dbname=' . self::$_dbname 
             . ';charset=utf8', 
-            self::$log,  
-            self::$password, 
+            self::$_log,  
+            self::$_password, 
             array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
         return $db;
