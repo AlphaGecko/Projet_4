@@ -7,7 +7,15 @@ class BillManager extends DbManager
     public function getBills()
     {
         $bills = DbManager::dbConnect()->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') 
-        AS creation_date_fr, author FROM bills ORDER BY creation_date DESC LIMIT 0, 10');
+        AS creation_date_fr, author FROM bills ORDER BY creation_date DESC LIMIT 0, 5');
+
+        return $bills;
+    }
+
+    public function getBillsList() 
+    {
+        $bills = DbManager::dbConnect()->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') 
+        AS creation_date_fr, author FROM bills ORDER BY creation_date');
 
         return $bills;
     }

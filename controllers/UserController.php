@@ -20,10 +20,20 @@ class UserController {
 
     public function billsList()
     {
-        $billManager = new BillManager(); 
-        $bills = $billManager->getBills(); 
+        $billManager = new BillManager();  
 
-        require('view/billsView.php');
+        if (!isset($_GET['action']))
+        {
+            $bills = $billManager->getBills();
+            require('view/billsView.php');
+        }
+        
+        elseif($_GET['action'] === 'allBills')
+        {
+            $bills = $billManager->getBillsList();
+            require('view/allBillsView.php');
+        }
+       
     }
     
     public function bills()

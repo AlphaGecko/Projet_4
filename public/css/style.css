@@ -10,7 +10,7 @@ a:link, a:visited {
 
 
 
-/* Fonts */
+/* Fonts and sizes */
 
 
 
@@ -128,6 +128,23 @@ label {
 }
 
 
+.bill_title_list {
+    font-size: 1.5em;
+    font-family: 'Caveat', cursive;
+} 
+
+.by_list {
+    font-size: 1.2em;
+    font-family: 'Caveat', cursive;
+}
+
+footer p {
+    color: white; 
+    font-size: 1.2em;
+    font-family: 'Caveat', cursive;
+}
+
+
 
 /* main style */
 
@@ -147,6 +164,7 @@ input {
 
 html {
     overflow-x: hidden;
+    min-width: 720px;
 }
 
 * {
@@ -172,6 +190,7 @@ nav {
     box-shadow: 2px 0px 10px grey;
     height: 120px;
     display: flex;
+    min-width: 720px;
 }
 
 
@@ -264,6 +283,7 @@ nav {
     overflow: hidden;
     top: 0;
     z-index: -10;
+    margin-top: -20px;
 }
 
 #alaska img {
@@ -321,7 +341,6 @@ nav {
 #edit_container {
     text-align: center;
 }
-
 
 
 
@@ -424,6 +443,16 @@ nav {
 }
 
 
+
+
+
+/* all bills */ 
+
+
+
+.one_bill_container_list:hover {
+    text-decoration: underline;
+}
 
 
 
@@ -543,3 +572,16 @@ nav {
 }
 
 
+
+
+
+/* footer */ 
+
+
+footer {
+    background: linear-gradient(#444, #222);
+    display: flex;
+    justify-content: space-around;
+    border-top: 4px solid #444;
+    box-shadow: 0px 0px 5px #555;
+}

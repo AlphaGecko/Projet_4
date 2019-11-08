@@ -57,5 +57,6 @@ elseif($_GET['action'] === 'deleteCommentValidation')
 
 <?php 
 require('adminHeader.php');
+require('footer.php');
 require('templates/template.php'); 
 ?>

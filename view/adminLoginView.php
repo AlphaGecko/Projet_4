@@ -32,5 +32,6 @@
 
 <?php 
 require('header.php');
+require('footer.php');
 require('templates/template.php'); 
 ?>

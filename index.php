@@ -13,7 +13,7 @@ $adminView = new AdminController();
 
 if (isset($_GET['action'])) {
 
-    if ($_GET['action'] === 'BillsList') 
+    if ($_GET['action'] === 'BillsList' || $_GET['action'] === 'allBills') 
     { 
         $userView->billsList();
     }

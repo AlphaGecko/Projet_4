@@ -25,7 +25,7 @@
 while ($data = $bills->fetch())
 {
 ?>
-    <div class="container">
+    <div class="container-fluid">
         <div class="bill">
             <h3 class="bill_title"><?= htmlspecialchars($data['title']) ?></h3>
 
@@ -75,5 +75,6 @@ $bills->closeCursor();
 
 <?php 
 require('header.php');
+require('footer.php');
 require('templates/template.php'); 
 ?>

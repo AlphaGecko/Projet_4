@@ -10,7 +10,7 @@ if(isset($_SESSION['admin']))
 }
 ?>
 
-<div class="container">
+<div class="container-fluid">
     <div class="bill">
         <h3 class="bill_title"><?= htmlspecialchars($bill['title']) ?></h3>
 
@@ -71,5 +71,6 @@ if(isset($_SESSION['admin']))
 
 <?php 
 require('header.php');
+require('footer.php');
 require('templates/template.php'); 
 ?>

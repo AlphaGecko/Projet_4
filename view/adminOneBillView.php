@@ -11,7 +11,7 @@ else
 
     <p><a href="http://localhost/projet_4/"  class="back">Retour au panneau administrateur</a></p>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="bill">
             <h3 class="bill_title"><?= htmlspecialchars($bill['title']) ?></h3>
 
@@ -72,5 +72,6 @@ else
 
 <?php 
 require('adminHeader.php');
+require('footer.php');
 require('templates/template.php'); 
 ?>

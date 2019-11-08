@@ -38,5 +38,6 @@ $content = ob_get_clean(); ?>
 
 <?php 
 require('adminHeader.php');
+require('footer.php');
 require('templates/template.php'); 
 ?>
