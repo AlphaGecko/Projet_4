@@ -13,6 +13,8 @@ a:link, a:visited {
 
 
 
+
+
 @-webkit-keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -34,7 +36,11 @@ a:link, a:visited {
 }
 
 
+
+
 /* loader */ 
+
+
 
 
 
@@ -230,8 +236,11 @@ footer p {
 }
 
 
-/* main style */
 
+
+
+
+/* main style */
 
 
 
@@ -254,8 +263,9 @@ html {
 
 
 
-/* user nav */ 
 
+
+/* user nav */ 
 
 
 
@@ -308,23 +318,7 @@ nav {
 
 
 
-
-
-
-
-/* Users */ 
-
-
-
-
-
-
-
-
-
 /* header */ 
-
-
 
 
 
@@ -375,11 +369,7 @@ nav {
 
 
 
-
-
 /* Bills */ 
-
-
 
 
 
@@ -428,8 +418,6 @@ nav {
 
 
 /* Comments */ 
-
-
 
 
 
@@ -519,6 +507,9 @@ nav {
 
 
 
+
+
+
 #validation_container {
     text-align: center;
 }
@@ -531,14 +522,11 @@ nav {
 
 
 
+
+
 .one_bill_container_list:hover {
     text-decoration: underline;
 }
-
-
-
-/* admin */ 
-
 
 
 
@@ -666,8 +654,9 @@ nav {
 
 
 
-
 /* Disconnect */
+
+
 
 
 
@@ -677,7 +666,11 @@ nav {
 
 
 
+
 /* legal */ 
+
+
+
 
 
 #legal_container p em, #legal_container p a {
@@ -685,7 +678,13 @@ nav {
 }
 
 
+
+
+
 /* footer */ 
+
+
+
 
 
 footer {
