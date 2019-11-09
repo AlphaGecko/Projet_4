@@ -6,7 +6,7 @@ window.onload = function(){
 };
 
 
-// front espace administrateur
+// style dynamique espace administrateur
 
 const addButton = $('#add_button');
 const listButton = $('#list_button');

@@ -8,6 +8,8 @@ else
    
 ?>
 
+<?php $title = 'Panneau administrateur' ?>
+
 <?php ob_start(); ?>
 
 <?php 

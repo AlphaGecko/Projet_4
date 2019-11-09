@@ -1,3 +1,5 @@
+<?php $title = 'ERREUR' ?>
+
 <?php ob_start(); ?>
 
 <div class="error_container">

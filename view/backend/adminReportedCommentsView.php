@@ -8,6 +8,8 @@ else
    
 ?>
 
+<?php $title = 'Commentaires signalés' ?>
+
 <?php ob_start(); ?>
 
 <p><a href="http://localhost/projet_4/"  class="back">Retour au panneau administrateur</a></p>

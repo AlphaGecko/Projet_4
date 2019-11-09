@@ -1,3 +1,5 @@
+<?php $title = 'Validation' ?>
+
 <?php ob_start(); ?>
 
 <?php

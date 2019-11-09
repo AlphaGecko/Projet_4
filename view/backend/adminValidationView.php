@@ -5,6 +5,8 @@ if (!isset($_SESSION['admin']))
 }
 ?>
 
+<?php $title = 'Validation' ?>
+
 <?php ob_start();
 
 if (isset($_GET['action']))

@@ -1,4 +1,4 @@
-<?php $title = 'Connexion administrateur'; ?>
+<?php $title = 'Connexion administrateur' ?>
 
 <?php ob_start(); ?>
 

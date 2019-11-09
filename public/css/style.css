@@ -698,6 +698,10 @@ footer {
     width: 100%; 
 }
 
+footer p {
+    margin-top: 10px;
+}
+
 footer a p:hover {
     color: #888;
 }

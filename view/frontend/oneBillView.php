@@ -1,5 +1,3 @@
-<?php $title = htmlspecialchars($bill['title']); ?>
-
 <?php 
 
 
@@ -9,6 +7,8 @@ if ($bill['id'] !== $_GET['id']) {
 }
 
 ?> 
+
+<?php $title = htmlspecialchars($bill['title']); ?>
 
 <?php ob_start(); ?>
 

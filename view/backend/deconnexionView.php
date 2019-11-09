@@ -1,3 +1,5 @@
+<?php $title = 'Déconnexion' ?>
+
 <?php ob_start(); ?>
 
 <p id="disconnect">Vous êtes déconnecté !</p>

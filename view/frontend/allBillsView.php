@@ -1,4 +1,4 @@
-<?php $title = 'Toute l\'histoire'; ?>
+<?php $title = 'Toute l\'histoire' ?>
 
 <?php ob_start(); ?>
 

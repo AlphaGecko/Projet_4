@@ -7,6 +7,8 @@ else
 {  
 ?>
 
+<?php $title = 'Editer ou supprimer' ?>
+
     <?php ob_start(); ?>
 
         <div id="edit_container">

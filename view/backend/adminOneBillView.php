@@ -7,6 +7,8 @@ else
 {  
 ?>
 
+<?php $title = $bill['title'] ?>
+
     <?php ob_start(); ?> 
 
     <p><a href="http://localhost/projet_4/"  class="back">Retour au panneau administrateur</a></p>
