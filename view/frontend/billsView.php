@@ -47,7 +47,7 @@ while ($data = $bills->fetch())
                 ?>
                     <?= $billOverview ?> <p class="suspension_points">[...]</p> <br />
                     <p>
-                        <a href="index.php?action=bill&amp;id=<?= $data['id'] ?>" class="full_view_link">Voir la suite du billet et les commentaires -></a>
+                        <a href="https://www.alpha-gecko.com/Projet_4/index.php?action=bill&amp;id=<?= $data['id'] ?>" class="full_view_link">Voir la suite du billet et les commentaires -></a>
                     </p>
                 <?php
                 }
@@ -56,7 +56,7 @@ while ($data = $bills->fetch())
                 ?>
                     <?= $data['content'] ?> <br />
                     <p>
-                        <a href="index.php?action=bill&amp;id=<?= $data['id'] ?>" class="full_view_link">Voir les commentaires -></a>
+                        <a href="https://www.alpha-gecko.com/Projet_4/index.php?action=bill&amp;id=<?= $data['id'] ?>" class="full_view_link">Voir les commentaires -></a>
                     </p>
                 <?php
                 } 

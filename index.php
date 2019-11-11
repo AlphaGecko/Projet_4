@@ -13,17 +13,6 @@ $adminView = new AdminController();
 
 if (isset($_GET['action'])) {
 
-    try 
-    {
-
-    }   
-
-    catch(Exception $e) 
-    { 
-        echo 'Erreur : ' . $e->getMessage();
-    }
-    
-    
     if ($_GET['action'] === 'BillsList' || $_GET['action'] === 'allBills') 
     {
         $userView->billsList();
@@ -38,7 +27,7 @@ if (isset($_GET['action'])) {
 
         else 
         {
-            header('Location: http://localhost/Projet_4/index.php?action=error');
+            header('Location:https://www.alpha-gecko.com/Projet_4/index.php?action=error');
         }
     }
 
@@ -79,7 +68,7 @@ if (isset($_GET['action'])) {
             if (htmlspecialchars($_POST['admin_id']) === $adminName && htmlspecialchars($_POST['admin_password']) === $adminPassword)
             {
                 $_SESSION['admin'] = $data['admin_pseudo'];
-                header('Location: http://localhost/Projet_4/'); 
+                header('Location:https://www.alpha-gecko.com/Projet_4/'); 
             } 
             
             else 
@@ -102,7 +91,7 @@ if (isset($_GET['action'])) {
         }
         else 
         {
-            header('Location: http://localhost/Projet_4/index.php?action=error');
+            header('Location:https://www.alpha-gecko.com/Projet_4/index.php?action=error');
         }
     }
 
@@ -119,7 +108,7 @@ if (isset($_GET['action'])) {
         } 
         else 
         {
-            header('Location: http://localhost/Projet_4/index.php?action=error');
+            header('Location:https://www.alpha-gecko.com/Projet_4/index.php?action=error');
         }
     }
 
@@ -131,7 +120,7 @@ if (isset($_GET['action'])) {
         }
         else 
         {
-            header('Location: http://localhost/Projet_4/index.php?action=error');
+            header('Location:https://www.alpha-gecko.com/Projet_4/index.php?action=error');
         }
     }
 
@@ -143,7 +132,7 @@ if (isset($_GET['action'])) {
         }
         else 
         {
-            header('Location: http://localhost/Projet_4/index.php?action=error');
+            header('Location:https://www.alpha-gecko.com/Projet_4/index.php?action=error');
         }
     }
 
@@ -155,7 +144,7 @@ if (isset($_GET['action'])) {
         }
         else 
         {
-            header('Location: http://localhost/Projet_4/index.php?action=error');
+            header('Location:https://www.alpha-gecko.com/Projet_4/index.php?action=error');
         }
     }
 
@@ -167,7 +156,7 @@ if (isset($_GET['action'])) {
         }
         else 
         {
-            header('Location: http://localhost/Projet_4/index.php?action=error');
+            header('Location:https://www.alpha-gecko.com/Projet_4/index.php?action=error');
         }
     }
 
@@ -179,7 +168,7 @@ if (isset($_GET['action'])) {
         }
         else 
         {
-            header('Location: http://localhost/Projet_4/index.php?action=error');
+            header('Location:https://www.alpha-gecko.com/Projet_4/index.php?action=error');
         }
     }
 

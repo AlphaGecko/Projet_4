@@ -8,7 +8,7 @@
 while ($data = $bills->fetch())
 {
 ?>
-    <a href="index.php?action=bill&amp;id=<?= $data['id'] ?>" class="full_view_link_list">
+    <a href="https://www.alpha-gecko.com/Projet_4/index.php?action=bill&amp;id=<?= $data['id'] ?>" class="full_view_link_list">
         
         <li class="one_bill_container_list">
             <h3 class="bill_title_list"><?= htmlspecialchars($data['title']) ?></h3>

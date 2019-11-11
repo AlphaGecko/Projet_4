@@ -13,7 +13,7 @@
         </span>
 
         <div id="admin_menu">
-            <a href="http://localhost/projet_4/index.php?action=deconnexion">Déconnexion</a></p>
+            <a href="https://www.alpha-gecko.com/projet_4/index.php?action=deconnexion">Déconnexion</a></p>
         </div>
     </p>
 </nav>

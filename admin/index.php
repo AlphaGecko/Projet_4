@@ -2,4 +2,4 @@
 
 <?php 
 
-header('Location: http://localhost/Projet_4/index.php?action=admin');
+header('Location:https://www.alpha-gecko.com/Projet_4/index.php?action=admin');

@@ -1,7 +1,7 @@
 <?php 
 if (!isset($_SESSION['admin'])) 
 {
-    header('Location: http://localhost/Projet_4/index.php');
+    header('Location:https://www.alpha-gecko.com/Projet_4');
 }
 else
 { 
@@ -34,7 +34,7 @@ while ($reportList = $reports->fetch())
 
     <div id="alert">Il y'a actuellement 
         <span class="btn btn-warning">
-            <a href="index.php?action=reportedComments">
+            <a href="https://www.alpha-gecko.com/Projet_4/index.php?action=reportedComments">
                 <span class="badge">
                     <?= $reportedNumber ?> 
                 </span>
@@ -112,13 +112,13 @@ while ($reportList = $reports->fetch())
         </div>
 
         <div class="admin_buttons_container">
-            <a href="index.php?action=editBill&amp;id=<?= $data['id'] ?>">
+            <a href="https://www.alpha-gecko.com/Projet_4/index.php?action=editBill&amp;id=<?= $data['id'] ?>">
                 <input type="button" class="edit_button" value="Modifier ou supprimer le billet"/>
             </a>
 
             <br />
 
-            <a href="index.php?action=editComment&amp;id=<?= $data['id']?>">
+            <a href="https://www.alpha-gecko.com/Projet_4/index.php?action=editComment&amp;id=<?= $data['id']?>">
                 <input type="button" class="comment_button" value="Voir le billet complet et les commentaires"/>
             </a>
         </div>

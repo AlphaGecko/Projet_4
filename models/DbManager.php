@@ -4,9 +4,9 @@ abstract class DbManager
 {
 
     static private $_host = 'localhost';
-    static private $_dbname = 'blog';
-    static private $_log = 'root'; 
-    static private $_password = '';
+    static private $_dbname = 'maje8864_blog';
+    static private $_log = 'maje8864'; 
+    static private $_password = 'GB5aLh-QSf5Z';
 
     static public function dbConnect()
     {

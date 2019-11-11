@@ -6,6 +6,6 @@
 
 <?= $content = ob_get_clean(); ?>
 
-<?php header('Refresh: 1; URL=http://localhost/projet_4'); ?>
+<?php header('Refresh: 1; URL=https://www.alpha-gecko.com/Projet_4'); ?>
 
 <?php require('templates/template.php'); ?>

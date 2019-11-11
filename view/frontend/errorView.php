@@ -9,7 +9,7 @@
 
 </div>
 
-<?php header('Refresh: 3; URL=http://localhost/projet_4'); ?>
+<?php header('Refresh:2;URL=https://www.alpha-gecko.com/Projet_4'); ?>
 
 <?php $content = ob_get_clean(); ?>
 

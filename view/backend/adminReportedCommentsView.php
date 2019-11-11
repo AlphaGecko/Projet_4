@@ -1,7 +1,7 @@
 <?php 
 if (!isset($_SESSION['admin'])) 
 {
-    header('Location: http://localhost/Projet_4/index.php');
+    header('Location:https://www.alpha-gecko.com/Projet_4');
 }
 else
 { 
@@ -12,7 +12,7 @@ else
 
 <?php ob_start(); ?>
 
-<p><a href="http://localhost/projet_4/"  class="back">Retour au panneau administrateur</a></p>
+<p><a href="https://www.alpha-gecko.com/Projet_4" class="back">Retour au panneau administrateur</a></p>
 
 <?php 
 while ($comment = $reports->fetch())
@@ -31,7 +31,7 @@ while ($comment = $reports->fetch())
         </div>
 
         <div class="admin_buttons_container">
-            <a href="http://localhost/projet_4/index.php?action=deleteCommentValidation&amp;commentId=<?= $comment['id'] ?>"  class="delete_comment"><input type="button" value="Effacer le commentaire" class="delete_comment_button"></a>
+            <a href="https://www.alpha-gecko.com/Projet_4/index.php?action=deleteCommentValidation&amp;commentId=<?= $comment['id'] ?>"  class="delete_comment"><input type="button" value="Effacer le commentaire" class="delete_comment_button"></a>
         </div>
     <?php
     }

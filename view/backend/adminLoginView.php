@@ -24,7 +24,7 @@
 
     </form>
 
-    <p><a href="index.php" class="back">Retour à la liste des billets</a></p>
+    <p><a href="https://www.alpha-gecko.com/Projet_4" class="back">Retour à la liste des billets</a></p>
 
 </div>
 

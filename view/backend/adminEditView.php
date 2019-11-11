@@ -1,7 +1,7 @@
 <?php 
 if (!isset($_SESSION['admin'])) 
 {
-    header('Location: http://localhost/Projet_4/');
+    header('Location:https://www.alpha-gecko.com/Projet_4');
 }
 else
 {  
