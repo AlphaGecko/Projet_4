@@ -1,10 +1,13 @@
 <?php session_start(); 
-// session_destroy();
-?>
 
+<<<<<<< HEAD
 <!-- ROUTEUR -->
 
 <?php
+=======
+// ROUTEUR
+
+>>>>>>> 5713764... Modification de la logique de redirection, car non-applicable sur un serveur qui n'est pas local.
 require_once('controllers/frontend/UserController.php'); 
 require_once('controllers/backend/AdminController.php'); 
 
@@ -12,9 +15,9 @@ $userView = new UserController();
 $adminView = new AdminController();
 
 if (isset($_GET['action'])) {
-
-    if ($_GET['action'] === 'BillsList' || $_GET['action'] === 'allBills') 
+    try 
     {
+<<<<<<< HEAD
         $userView->billsList();
     }
 
@@ -41,41 +44,80 @@ if (isset($_GET['action'])) {
             if (!empty($_POST['author']) && !empty($_POST['comment'])) 
             {
                 $userView->addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+=======
+        if ($_GET['action'] === 'BillsList' || $_GET['action'] === 'allBills') 
+        {
+            $userView->billsList();
+        }
+    
+        elseif ($_GET['action'] === 'bill' && !isset($_GET['comment'])) 
+        {
+            if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT) > 0) 
+            { 
+                $userView->bills();
+>>>>>>> 5713764... Modification de la logique de redirection, car non-applicable sur un serveur qui n'est pas local.
             }
 
             else 
             {
-                trigger_error('Tous les champs ne sont pas remplis !', E_USER_NOTICE);
+                $userView->error();
             }
         }
+<<<<<<< HEAD
         
         else 
-        {
-            trigger_error('Aucun identifiant de billet n\'a été envoyé !', E_USER_WARNING);
+=======
+    
+    
+        elseif ($_GET['action'] === 'bill' && $_GET['comment'] === 'addComment') 
+        { 
+            if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT) > 0) 
+            {
+    
+                if (!empty($_POST['author']) && !empty($_POST['comment'])) 
+                {
+                    $userView->addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+                    $userView->bills();
+                }
+                else 
+                {
+                    $userView->error();
+                }
+            }
+            else 
+            {
+                $userView->error();
+            }
         }
-    }
-
-    elseif($_GET['action'] === 'admin') 
-    {
-        $adminView->adminLogin();
-        $data = $adminView->adminDatas->fetch();
-
-        $adminName = $data['admin_name']; 
-        $adminPassword = $data['admin_password'];
-
-        if (isset($_POST['admin_id']) && isset($_POST['admin_password']))
+    
+        elseif($_GET['action'] === 'admin' && !isset($_GET['validation'])) 
+>>>>>>> 5713764... Modification de la logique de redirection, car non-applicable sur un serveur qui n'est pas local.
         {
+            $adminView->adminLogin();
+        }
+    
+        elseif($_GET['action'] === 'admin' && $_GET['validation'] === 'isAdmin' && isset($_POST['admin_id']) && isset($_POST['admin_password'])) 
+        {
+            $adminView->adminLogin();
+            $data = $adminView->adminDatas->fetch();
+            $adminName = $data['admin_name']; 
+            $adminPassword = $data['admin_password'];
+    
             if (htmlspecialchars($_POST['admin_id']) === $adminName && htmlspecialchars($_POST['admin_password']) === $adminPassword)
             {
                 $_SESSION['admin'] = $data['admin_pseudo'];
+<<<<<<< HEAD
                 header('Location:https://www.alpha-gecko.com/Projet_4/'); 
+=======
+                $adminView->adminPanel();
+>>>>>>> 5713764... Modification de la logique de redirection, car non-applicable sur un serveur qui n'est pas local.
             } 
-            
             else 
             {
-                echo 'Identifiant ou mot de passe incorrect';
+                $userView->error();
             }
         }
+<<<<<<< HEAD
     }
 
     elseif($_GET['action'] === 'newBillValidation')
@@ -109,86 +151,149 @@ if (isset($_GET['action'])) {
         else 
         {
             header('Location:https://www.alpha-gecko.com/Projet_4/index.php?action=error');
-        }
-    }
-
-    elseif($_GET['action'] === 'editionValidation')
-    {
-        if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT) > 0) 
+=======
+    
+        elseif($_GET['action'] === 'newBillValidation')
         {
-            $adminView->editionValidation($_GET['id']);
+    
+            $author = $_SESSION['admin']; 
+            
+            if (isset($_POST['title']) && isset($_POST['content']))
+            {
+                $adminView->validation();
+                $sendToDb = new AdminController; 
+                $sendToDb->addNewBill($_POST['title'], $_POST['content'], $author);
+            }
+            else 
+            {
+                throw new Exception('Vous devez impérativement poster un titre et un contenu. Faites "précédent" pour ne pas perdre votre travail.');
+            }
+>>>>>>> 5713764... Modification de la logique de redirection, car non-applicable sur un serveur qui n'est pas local.
         }
+    
+        elseif($_GET['action'] === 'deconnexion')
+        {
+            $adminView->deconnexion();
+        }
+    
+        elseif ($_GET['action'] === 'editBill')
+        {
+<<<<<<< HEAD
+            header('Location:https://www.alpha-gecko.com/Projet_4/index.php?action=error');
+=======
+            if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT) > 0) 
+            { 
+                $adminView->editBill();
+            } 
+            else 
+            {
+                throw new Exception('Veuillez ne jamais modifier manuellement l\'URL de votre navigateur. Faites "précédent" pour ne pas perdre votre travail.');
+            }
+>>>>>>> 5713764... Modification de la logique de redirection, car non-applicable sur un serveur qui n'est pas local.
+        }
+    
+        elseif($_GET['action'] === 'editionValidation')
+        {
+            if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT) > 0) 
+            {
+                $adminView->editionValidation($_GET['id']);
+            }
+            else 
+            {
+                throw new Exception('Veuillez ne jamais modifier manuellement l\'URL de votre navigateur. Faites "précédent" pour ne pas perdre votre travail.');
+            }
+        }
+    
+        elseif($_GET['action'] === 'deleteValidation')
+        {
+<<<<<<< HEAD
+            header('Location:https://www.alpha-gecko.com/Projet_4/index.php?action=error');
+=======
+            if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT) > 0) 
+            {
+                $adminView->deleteValidation($_GET['id']);
+            }
+            else 
+            {
+                throw new Exception('Veuillez ne jamais modifier manuellement l\'URL de votre navigateur. Faites "précédent" pour ne pas perdre votre travail.');
+            }
+>>>>>>> 5713764... Modification de la logique de redirection, car non-applicable sur un serveur qui n'est pas local.
+        }
+    
+        elseif($_GET['action'] === 'editComment')
+        {
+            if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT) > 0) 
+            {
+                $adminView->adminBills();
+            }
+            else 
+            {
+                throw new Exception('Veuillez ne jamais modifier manuellement l\'URL de votre navigateur. Faites "précédent" pour ne pas perdre votre travail.');
+            }
+        }
+    
+        elseif($_GET['action'] === 'deleteCommentValidation')
+        {
+<<<<<<< HEAD
+            header('Location:https://www.alpha-gecko.com/Projet_4/index.php?action=error');
+=======
+            if (isset($_GET['commentId']) && filter_var($_GET['commentId'], FILTER_VALIDATE_INT) > 0) 
+            {
+                $adminView->deleteCommentValidation($_GET['commentId']);
+            }
+            else 
+            {
+                throw new Exception('Veuillez ne jamais modifier manuellement l\'URL de votre navigateur. Faites "précédent" pour ne pas perdre votre travail.');
+            }
+>>>>>>> 5713764... Modification de la logique de redirection, car non-applicable sur un serveur qui n'est pas local.
+        }
+    
+        elseif($_GET['action'] === 'report')
+        {
+            if(isset($_GET['reportId']) && filter_var($_GET['reportId'], FILTER_VALIDATE_INT) > 0)
+            {
+                $userView->report($_GET['reportId']);
+            }
+            else 
+            {
+                throw new Exception('Veuillez ne jamais modifier manuellement l\'URL de votre navigateur. Faites "précédent" pour ne pas perdre votre travail.');
+            }
+        }
+    
+        elseif($_GET['action'] === 'legal')
+        {
+<<<<<<< HEAD
+            header('Location:https://www.alpha-gecko.com/Projet_4/index.php?action=error');
+=======
+            $userView->legal();
+>>>>>>> 5713764... Modification de la logique de redirection, car non-applicable sur un serveur qui n'est pas local.
+        }
+    
+    
+        elseif($_GET['action'] === 'reportedComments')
+        {
+            $adminView->allReportedComments();
+        }
+<<<<<<< HEAD
         else 
         {
             header('Location:https://www.alpha-gecko.com/Projet_4/index.php?action=error');
+=======
+    
+    
+        else {
+            $userView->error();
+>>>>>>> 5713764... Modification de la logique de redirection, car non-applicable sur un serveur qui n'est pas local.
         }
+        
     }
 
-    elseif($_GET['action'] === 'deleteValidation')
+    catch (Exception $e)
     {
-        if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT) > 0) 
-        {
-            $adminView->deleteValidation($_GET['id']);
-        }
-        else 
-        {
-            header('Location:https://www.alpha-gecko.com/Projet_4/index.php?action=error');
-        }
+        var_dump($e->getMessage());
     }
-
-    elseif($_GET['action'] === 'editComment')
-    {
-        if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT) > 0) 
-        {
-            $adminView->adminBills();
-        }
-        else 
-        {
-            header('Location:https://www.alpha-gecko.com/Projet_4/index.php?action=error');
-        }
-    }
-
-    elseif($_GET['action'] === 'deleteCommentValidation')
-    {
-        if (isset($_GET['commentId']) && filter_var($_GET['commentId'], FILTER_VALIDATE_INT) > 0) 
-        {
-            $adminView->deleteCommentValidation($_GET['commentId']);
-        }
-        else 
-        {
-            header('Location:https://www.alpha-gecko.com/Projet_4/index.php?action=error');
-        }
-    }
-
-    elseif($_GET['action'] === 'report')
-    {
-        if(isset($_GET['reportId']) && filter_var($_GET['reportId'], FILTER_VALIDATE_INT) > 0)
-        {
-            $userView->report($_GET['reportId']);
-        }
-        else 
-        {
-            header('Location:https://www.alpha-gecko.com/Projet_4/index.php?action=error');
-        }
-    }
-
-    elseif($_GET['action'] === 'legal')
-    {
-        $userView->legal();
-    }
-
-
-    elseif($_GET['action'] === 'reportedComments')
-    {
-        $adminView->allReportedComments();
-    }
-
-
-    else {
-        $userView->error();
-    }
-
 }
+
 
 /* default views */ 
 

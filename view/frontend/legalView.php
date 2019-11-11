@@ -1,7 +1,6 @@
-<?php $title = 'Mentions legales'; ?>
-
-
 <?php ob_start(); ?>
+
+<?php $title = 'Mentions legales'; ?>
 
 <div id="legal_container" class="container">
     <p>
@@ -71,7 +70,7 @@
 <?php $content = ob_get_clean(); ?>
 
 <?php 
-require('header.php');
-require('footer.php');
-require('templates/template.php'); 
+require_once('header.php');
+require_once('footer.php');
+require_once('templates/template.php'); 
 ?>

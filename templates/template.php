@@ -35,7 +35,7 @@
             </div>
 
         <?php
-            if(!isset($_SESSION['admin']))
+            if(!isset($_SESSION['admin']) || !isset($_GET['action']) === 'admin')
             {
             ?>
             <footer>

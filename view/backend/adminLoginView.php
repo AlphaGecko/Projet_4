@@ -1,6 +1,6 @@
-<?php $title = 'Connexion administrateur' ?>
-
 <?php ob_start(); ?>
+
+<?php $title = 'Connexion administrateur' ?>
 
 <div id="log_container">
 
@@ -31,6 +31,6 @@
 <?php $content = ob_get_clean(); ?>
 
 <?php 
-require('view/frontend/header.php');
-require('templates/template.php'); 
+require_once('view/frontend/header.php');
+require_once('templates/template.php'); 
 ?>

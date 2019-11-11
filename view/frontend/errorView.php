@@ -1,29 +1,53 @@
-<?php $title = 'ERREUR' ?>
+<?php header('Refresh:2;URL=https://www.alpha-gecko.com/Projet_4'); ?>
 
 <?php ob_start(); ?>
 
-<div class="error_container">
-    <p class="error">La page que vous recherchez n'existe pas.</p>
+<?php $title = 'ERREUR' ?>
 
-    <p class="error">Redirection vers la page d'accueil.</p>
-
-</div>
-
-<?php header('Refresh:2;URL=https://www.alpha-gecko.com/Projet_4'); ?>
+<?php 
+if($_GET['action'] === 'bill' && $_GET['comment'] === 'addComment')
+{
+?>
+    <div id="validation_container">
+        <h2 class="validation">Vous devez écrire un commentaire avant de valider.</h2>
+        <a href="https://www.alpha-gecko.com/Projet_4/index.php?action=bill&id=<?= $_GET['id'] ?>" class="back"><p>Retour au billet</p></a>
+    </div>
+<?php
+}
+elseif($_GET['action'] === 'admin' && $_GET['validation'] === 'isAdmin')
+{
+?>
+    <div id="validation_container">
+        <h2 class="validation">Nom ou mot de passe incorrect</h2>
+        <a href="https://www.alpha-gecko.com/Projet_4/index.php?action=admin" class="back"><p>Retour à l'espace de connexion</p></a>
+        <a href="https://www.alpha-gecko.com/Projet_4" class="back"><p>Retour à l'accueil</p></a>
+    </div>
+<?php
+}
+else
+{
+?>
+    <div class="error_container">
+        <p class="error">La page que vous recherchez n'existe pas.</p>
+        <p class="error">Redirection vers la page d'accueil.</p>
+    </div>
+<?php
+}
+?>
 
 <?php $content = ob_get_clean(); ?>
 
 <?php 
 if(isset($_SESSION['admin']))
 {
-    require('backend/adminHeader.php');
+    require_once('backend/adminHeader.php');
 }
 else
 {
-    require('header.php');
+    require_once('header.php');
 }
-require('footer.php');
-require('templates/template.php'); 
+require_once('footer.php');
+require_once('templates/template.php'); 
 ?>
 
 <?php

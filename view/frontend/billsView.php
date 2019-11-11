@@ -1,6 +1,6 @@
-<?php $title = 'Billet simple pour l\'Alaska' ?>
-
 <?php ob_start(); ?>
+
+<?php $title = 'Billet simple pour l\'Alaska' ?>
 
 <header>
     <div id="header_container">
@@ -74,7 +74,7 @@ $bills->closeCursor();
 <?php $content = ob_get_clean(); ?>
 
 <?php 
-require('header.php');
-require('footer.php');
-require('templates/template.php'); 
+require_once('header.php');
+require_once('footer.php');
+require_once('templates/template.php'); 
 ?>

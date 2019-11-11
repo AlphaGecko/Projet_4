@@ -6,10 +6,9 @@ if (!isset($_SESSION['admin']))
 else
 {  
 ?>
-
-<?php $title = $bill['title'] ?>
-
     <?php ob_start(); ?> 
+
+    <?php $title = $bill['title'] ?>
 
     <p><a href="https://www.alpha-gecko.com/Projet_4" class="back">Retour au panneau administrateur</a></p>
 
@@ -73,6 +72,6 @@ else
 <?php $content = ob_get_clean(); ?>
 
 <?php 
-require('adminHeader.php');
-require('templates/template.php'); 
+require_once('adminHeader.php');
+require_once('templates/template.php'); 
 ?>

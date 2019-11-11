@@ -8,10 +8,9 @@ if ($bill['id'] !== $_GET['id']) {
 
 ?> 
 
-<?php $title = htmlspecialchars($bill['title']); ?>
-
 <?php ob_start(); ?>
 
+<?php $title = htmlspecialchars($bill['title']); ?>
 
 <div class="container-fluid">
     <div class="bill">
@@ -73,7 +72,7 @@ if ($bill['id'] !== $_GET['id']) {
 <?php $content = ob_get_clean(); ?>
 
 <?php 
-require('header.php');
-require('footer.php');
-require('templates/template.php'); 
+require_once('header.php');
+require_once('footer.php');
+require_once('templates/template.php'); 
 ?>

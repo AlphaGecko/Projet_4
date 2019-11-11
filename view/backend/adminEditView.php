@@ -2,14 +2,14 @@
 if (!isset($_SESSION['admin'])) 
 {
     header('Location:https://www.alpha-gecko.com/Projet_4');
+    exit();
 }
 else
 {  
 ?>
-
-<?php $title = 'Editer ou supprimer' ?>
-
     <?php ob_start(); ?>
+
+    <?php $title = 'Editer ou supprimer' ?>
 
         <div id="edit_container">
             <form action="index.php?action=editionValidation&amp;id=<?= $_GET['id'] ?>" method="post">
@@ -38,13 +38,12 @@ else
                 </a>
             </form>
         </div>
-
     <?php 
 }
+
 $content = ob_get_clean(); ?>
 
-
 <?php 
-require('adminHeader.php');
-require('templates/template.php'); 
+require_once('adminHeader.php');
+require_once('templates/template.php'); 
 ?>

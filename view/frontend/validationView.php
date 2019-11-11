@@ -1,6 +1,6 @@
-<?php $title = 'Validation' ?>
-
 <?php ob_start(); ?>
+
+<?php $title = 'Validation' ?>
 
 <?php
 if (isset($_GET['action']))
@@ -20,6 +20,6 @@ if (isset($_GET['action']))
 <?php $content = ob_get_clean(); ?>
 
 <?php 
-require('header.php');
-require('templates/template.php'); 
+require_once('header.php');
+require_once('templates/template.php'); 
 ?>

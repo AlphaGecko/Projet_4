@@ -1,6 +1,6 @@
-<?php $title = 'Toute l\'histoire' ?>
-
 <?php ob_start(); ?>
+
+<?php $title = 'Toute l\'histoire' ?>
 
 <ul>
 
@@ -25,7 +25,7 @@ $bills->closeCursor();
 <?php $content = ob_get_clean(); ?>
 
 <?php 
-require('header.php');
-require('footer.php');
-require('templates/template.php'); 
+require_once('header.php');
+require_once('footer.php');
+require_once('templates/template.php'); 
 ?>
