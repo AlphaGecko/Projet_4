@@ -77,7 +77,6 @@ if (isset($_GET['action'])) {
             }
         }
     
-    
         elseif ($_GET['action'] === 'bill' && $_GET['comment'] === 'addComment') 
         { 
             if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT) > 0) 
