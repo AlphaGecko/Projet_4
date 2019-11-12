@@ -67,7 +67,7 @@ if (isset($_GET['action'])) {
         {
             $adminView->adminDatas();
     
-            if (htmlspecialchars($_POST['admin_name']) === $adminView->getAdminName() && htmlspecialchars($_POST['admin_password']) === $adminView->getAdminPassword())
+            if (htmlspecialchars(in_array($_POST['admin_name'], $adminView->getAdminName()))  && htmlspecialchars(in_array($_POST['admin_password'], $adminView->getAdminPassword())) )
             {
                 $_SESSION['admin'] = $adminView->getAdminNickName();
                 $adminView->adminPanel();
@@ -183,6 +183,15 @@ if (isset($_GET['action'])) {
         elseif($_GET['action'] === 'reportedComments')
         {
             $adminView->allReportedComments();
+        }
+
+        elseif($_GET['action'] === 'test')
+        {
+            $adminView->adminDatas();
+            
+            var_dump($adminView->getAdminName());
+            var_dump($adminView->getAdminPassword());
+            var_dump($adminView->getAdminNickName());
         }
 
         // Erreur

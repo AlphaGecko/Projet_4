@@ -11,12 +11,11 @@ class AdminController extends UserController
         $connexionManager = new ConnexionManager;
         $adminDatas = $connexionManager->getAdmin();
 
-        while($datas = $adminDatas->fetch())
-        {
-            $this->_adminName = $datas['admin_name'];
-            $this->_adminPassword = $datas['admin_password'];
-            $this->_adminNickName = $datas['admin_pseudo'];
-        } 
+        $datas = $adminDatas->fetchAll();
+
+        $this->_adminName = array_column($datas, 'admin_name');
+        $this->_adminPassword = array_column($datas, 'admin_password');
+        $this->_adminNickName = array_column($datas, 'admin_pseudo');
     }
 
     public function getAdminName()
