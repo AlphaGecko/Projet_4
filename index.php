@@ -294,7 +294,6 @@ if (isset($_GET['action'])) {
     }
 }
 
-
 /* default views */ 
 
 else if (isset($_SESSION['admin']))
