@@ -32,7 +32,7 @@ if ($bill['id'] !== $_GET['id']) {
 
     <!-- Affichage d'un formulaire pour écrire un nouveau commentaire -->
 
-    <form action="index.php?action=addComment&amp;id=<?= $bill['id'] ?>" method="post">
+    <form action="index.php?action=bill&amp;id=<?= $bill['id'] ?>&amp;comment=addComment" method="post">
         <div>
             <label for="author" id="author">Auteur</label><br />
             <input type="text" id="author_input" name="author" required />

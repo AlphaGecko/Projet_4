@@ -30,9 +30,7 @@ else
 
         <h2 class="comment_title">Commentaires</h2>
 
-        <!-- Affichage d'un formulaire pour écrire un nouveau commentaire -->
-
-        <form action="index.php?action=addComment&amp;id=<?= $bill['id'] ?>" method="post">
+        <form action="index.php?action=bill&amp;id=<?= $bill['id'] ?>&amp;comment=addComment" method="post">
             <div>
                 <label for="author" id="author">Auteur</label><br />
                 <input type="text" id="author_input" name="author" />
@@ -60,7 +58,7 @@ else
 
                 <?= $comment['comment'] ?>
                 <div class="admin_buttons_container">
-                    <a href="https://www.alpha-gecko.com/Projet_4/index.php?action=deleteCommentValidation&amp;commentId=<?= $comment['id'] ?>"  class="delete_comment"><input type="button" value="Effacer le commentaire" class="delete_comment_button"></a>
+                    <a href="https://www.alpha-gecko.com/Projet_4/index.php?action=deleteCommentValidation&amp;commentId=<?= $comment['id'] ?>&amp;id=<?= $bill['id'] ?>"  class="delete_comment"><input type="button" value="Effacer le commentaire" class="delete_comment_button"></a>
                 </div>
             </div>
         <?php

@@ -1,13 +1,40 @@
 <?php 
 class AdminController extends UserController
 {
-    public $adminDatas;
 
-    public function adminLogin() 
+    private $_adminName;
+    private $_adminPassword;
+    private $_adminNickName;
+
+    public function adminDatas() 
     {
-        $datas = new ConnexionManager;
-        $this->adminDatas = $datas->getAdmin();
-        
+        $connexionManager = new ConnexionManager;
+        $adminDatas = $connexionManager->getAdmin();
+
+        $datas = $adminDatas->fetch();
+
+        $this->_adminName = $datas['admin_name'];
+        $this->_adminPassword = $datas['admin_password'];
+        $this->_adminNickName = $datas['admin_pseudo'];
+    }
+
+    public function getAdminName()
+    {
+        return $this->_adminName;
+    }
+    
+    public function getAdminPassword()
+    {
+        return $this->_adminPassword;
+    }
+    
+    public function getAdminNickName()
+    {
+        return $this->_adminNickName;
+    }
+
+    public function LogView() 
+    {
         require_once('view/backend/adminLoginView.php');
     }
 

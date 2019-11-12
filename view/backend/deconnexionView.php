@@ -1,11 +1,17 @@
 <?php ob_start(); ?>
 
-<?php $title = 'Déconnexion' ?>
+<?php $title = 'deconnexion' ?>
 
-<p id="disconnect">Vous êtes déconnecté !</p>
 
-<?= $content = ob_get_clean(); ?>
+<div id="validation_container">
+    <h2 class="validation">Vous êtes déconnecté !</h2>
+    <a href="https://www.alpha-gecko.com/Projet_4" class="back"><p>Page d'acceuil</p></a>
+</div>
 
-<?php header('Refresh: 2; URL=https://www.alpha-gecko.com/Projet_4'); ?>
+<?php $content = ob_get_clean(); ?>
 
-<?php require_once('templates/template.php'); ?>
+<?php 
+require_once('view/frontend/header.php');
+require_once('view/frontend/footer.php');
+require_once('templates/template.php'); 
+?>

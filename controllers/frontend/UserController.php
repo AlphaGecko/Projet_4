@@ -7,17 +7,7 @@ require_once('models/CommentManager.php');
 require_once('models/ConnexionManager.php');
 
 class UserController {
-
-    public $userDatas;
-
-    public function userLogin() 
-    { 
-        $datas = new ConnexionManager;
-        $this->userDatas = $datas->getUser();
-
-        require('view/frontend/userLoginView.php');
-    }
-
+    
     public function billsList()
     {
         $billManager = new BillManager();  
@@ -49,15 +39,7 @@ class UserController {
     public function addComment($billId, $author, $comment)
     {
         $commentManager = new CommentManager();
-    
         $affectedLines = $commentManager->postComment($billId, $author, $comment);
-    
-        if ($affectedLines === false) {
-            throw new Exception('Impossible d\'ajouter le commentaire !');
-        }
-        else {
-            header('Location: index.php?action=bill&id=' . $billId);
-        }
     }
 
     public function report($commentId)
@@ -75,6 +57,10 @@ class UserController {
 
     public function legal() {
         require('view/frontend/legalView.php');
+    }
+
+    public function validation() {
+        require('view/frontend/validationView.php');
     }
 }
 

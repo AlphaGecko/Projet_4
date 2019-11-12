@@ -29,11 +29,11 @@ else
 
                 <input type="submit" name="valider" value="Valider les modifications" class="add_button" />
 
-                <a href="index.php?action=deleteValidation&amp;id=<?=$_GET["id"]?>">
+                <a href="index.php?action=deleteValidation&amp;id=<?=$_GET['id']?>">
                     <input type="button" value="Supprimer" class="delete_button"/>
                 </a>
 
-                <a href="http://localhost/Projet_4">
+                <a href="https://www.alpha-gecko.com/Projet_4">
                     <input type="button" class="cancel_button" value="Annuler"/>
                 </a>
             </form>

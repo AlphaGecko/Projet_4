@@ -14,6 +14,15 @@ if (isset($_GET['action']))
         </div>
     <?php
     }
+    if($_GET['action'] === 'bill' && $_GET['comment'] === 'addComment')
+    {
+    ?>
+        <div id="validation_container">
+            <h2 class="validation">Votre commentaire à bien été posté !</h2>
+            <a href="https://www.alpha-gecko.com/Projet_4/index.php?action=bill&id=<?= $_GET['id'] ?>" class="back"><p>Retour au billet</p></a>
+        </div>
+    <?php
+    }
 }
 ?>
 

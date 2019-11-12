@@ -1,5 +1,3 @@
-<?php header('Refresh:2;URL=https://www.alpha-gecko.com/Projet_4'); ?>
-
 <?php ob_start(); ?>
 
 <?php $title = 'ERREUR' ?>
@@ -14,7 +12,7 @@ if($_GET['action'] === 'bill' && $_GET['comment'] === 'addComment')
     </div>
 <?php
 }
-elseif($_GET['action'] === 'admin' && $_GET['validation'] === 'isAdmin')
+elseif($_GET['action'] === 'connexion')
 {
 ?>
     <div id="validation_container">
@@ -29,7 +27,7 @@ else
 ?>
     <div class="error_container">
         <p class="error">La page que vous recherchez n'existe pas.</p>
-        <p class="error">Redirection vers la page d'accueil.</p>
+        <a href="https://www.alpha-gecko.com/Projet_4" class="back"><p>Retour à l'accueil</p></a>
     </div>
 <?php
 }
@@ -49,7 +47,3 @@ else
 require_once('footer.php');
 require_once('templates/template.php'); 
 ?>
-
-<?php
-exit();
-

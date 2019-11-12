@@ -6,16 +6,16 @@
 
     <h1 id="connexion">Connexion administrateur</h1>
 
-    <form action="index.php?action=admin" method="post">
+    <form action="index.php?action=connexion" method="post">
 
         <div>
             <label for="admin_name">Identifiant</label><br />
-            <input type="text" id="identifiant" name="admin_id" required />
+            <input type="text" id="name" name="admin_name" required />
         </div>
 
         <div>
             <label for="admin_password">Mot de passe</label><br />
-            <input type="password" id="mdp" name="admin_password" required />
+            <input type="password" id="password" name="admin_password" required />
         </div>
 
         <div>
@@ -32,5 +32,6 @@
 
 <?php 
 require_once('view/frontend/header.php');
+require_once('view/frontend/footer.php');
 require_once('templates/template.php'); 
 ?>
