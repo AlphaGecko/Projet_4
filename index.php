@@ -69,7 +69,9 @@ if (isset($_GET['action'])) {
     
             if (htmlspecialchars(in_array($_POST['admin_name'], $adminView->getAdminName()))  && htmlspecialchars(in_array($_POST['admin_password'], $adminView->getAdminPassword())) )
             {
-                $_SESSION['admin'] = $adminView->getAdminNickName();
+                $wichArray = array_search($_POST['admin_name'], $adminView->getAdminName());
+                
+                $_SESSION['admin'] = $adminView->getAdminNickName()[$wichArray];
                 $adminView->adminPanel();
             } 
             else 
