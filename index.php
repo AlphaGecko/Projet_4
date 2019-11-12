@@ -31,15 +31,21 @@ if (isset($_GET['action'])) {
             }
         }
     
+    
         elseif ($_GET['action'] === 'bill' && $_GET['comment'] === 'addComment') 
         { 
             if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT) > 0) 
             {
     
-                if (!empty($_POST['author']) && !empty($_POST['comment'])) 
+                if (!isset($_SESSION['admin']) && !empty($_POST['author']) && !empty($_POST['comment'])) 
                 {
                     $userView->addComment($_GET['id'], $_POST['author'], $_POST['comment']);
                     $userView->validation();
+                }
+                elseif (isset($_SESSION['admin']) && !empty($_POST['author']) && !empty($_POST['comment']))
+                {
+                    $userView->addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+                    $adminView->validation();
                 }
                 else 
                 {
