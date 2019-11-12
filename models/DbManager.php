@@ -2,7 +2,6 @@
 
 abstract class DbManager 
 {
-
     static private $_host = 'localhost';
     static private $_dbname = 'maje8864_blog';
     static private $_log = 'maje8864'; 
@@ -20,5 +19,4 @@ abstract class DbManager
 
         return $db;
     }
-
 } 
