@@ -1,4 +1,4 @@
 OpenClassrooms Project_4 Blog for a writer
 
-Authors
+Author
 MANSOUR Jean-Loup
