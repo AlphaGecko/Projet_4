@@ -49,6 +49,12 @@ class CommentManager
         $updateComment->execute(array($commentId));
     }
 
+    public function cancelReport($commentId)
+    {  
+        $updateComment = DbManager::dbConnect()->prepare('UPDATE comments SET report = 0 WHERE id = ?');
+        $updateComment->execute(array($commentId));
+    }
+
     public function getReportedComments()
     {
         $allComments = DbManager::dbConnect()->query('SELECT id, comment_author, comment, report, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') 

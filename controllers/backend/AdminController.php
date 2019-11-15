@@ -130,6 +130,17 @@ class AdminController extends UserController
         }  
     }
 
+    public function cancelReportValidation($commentId)
+    {
+        if (isset($_SESSION['admin']))
+        {
+            $commentManager = new CommentManager;
+            $commentManager->cancelReport($commentId);
+            
+            require_once('view/backend/adminValidationView.php');
+        }  
+    }
+
     public function validation()
     {
         require_once('view/backend/adminValidationView.php');

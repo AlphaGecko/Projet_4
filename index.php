@@ -187,15 +187,6 @@ if (isset($_GET['action'])) {
             $adminView->allReportedComments();
         }
 
-        elseif($_GET['action'] === 'test')
-        {
-            $adminView->adminDatas();
-            
-            var_dump($adminView->getAdminName());
-            var_dump($adminView->getAdminPassword());
-            var_dump($adminView->getAdminNickName());
-        }
-
         // Erreur
     
         else {

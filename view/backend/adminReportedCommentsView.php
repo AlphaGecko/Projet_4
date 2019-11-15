@@ -32,6 +32,7 @@ else
 
             <div class="admin_buttons_container">
                 <a href="https://www.alpha-gecko.com/Projet_4/index.php?action=deleteCommentValidation&amp;commentId=<?= $comment['id'] ?>"  class="delete_comment"><input type="button" value="Effacer le commentaire" class="delete_comment_button"></a>
+                <a href="https://www.alpha-gecko.com/Projet_4/index.php?action=cancelReportValidation&amp;commentId=<?= $comment['id'] ?>"  class="cancel_report"><input type="button" value="Annuler le signalement" class="delete_report_button"></a>
             </div>
         <?php
         }
