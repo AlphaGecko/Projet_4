@@ -187,6 +187,14 @@ if (isset($_GET['action'])) {
             $adminView->allReportedComments();
         }
 
+        elseif($_GET['action'] === 'cancelReportValidation')
+        {
+            if (isset($_GET['commentId']) && filter_var($_GET['commentId'], FILTER_VALIDATE_INT) > 0) 
+            {
+                $adminView->cancelReportValidation($_GET['commentId']);
+            }
+        }
+
         // Erreur
     
         else {
