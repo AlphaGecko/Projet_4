@@ -1,7 +1,5 @@
 <?php
 
-// Chargement des classes
-
 require_once('models/BillManager.php');
 require_once('models/CommentManager.php');
 require_once('models/ConnexionManager.php');

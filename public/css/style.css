@@ -598,7 +598,7 @@ nav {
     text-align: center;
 }
 
-#add_button, #list_button, .edit_button, .comment_button, .delete_comment_button, .add_button, .delete_button, .cancel_button {
+#add_button, #list_button, .edit_button, .comment_button, .delete_comment_button, .add_button, .delete_button, .cancel_button, .delete_report_button {
     margin-top: 5px; 
     margin-bottom: 20px;
     padding: 5px 20px 5px 20px;
@@ -607,7 +607,7 @@ nav {
     text-align: center;
 }
 
-#add_button:hover, #list_button:hover, .edit_button:hover, .comment_button:hover, .add_button:hover, .delete_button:hover, .cancel_button:hover {
+#add_button:hover, #list_button:hover, .edit_button:hover, .comment_button:hover, .add_button:hover, .delete_button:hover, .cancel_button:hover, .delete_report_button:hover {
     background: rgb(128, 170, 255) !important;
 }
 

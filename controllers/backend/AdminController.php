@@ -33,11 +33,6 @@ class AdminController extends UserController
         return $this->_adminNickName;
     }
 
-    public function LogView() 
-    {
-        require_once('view/backend/adminLoginView.php');
-    }
-
     public function adminPanel()
     {
         if (isset($_SESSION['admin']))
@@ -139,6 +134,11 @@ class AdminController extends UserController
             
             require_once('view/backend/adminValidationView.php');
         }  
+    }
+
+    public function LogView() 
+    {
+        require_once('view/backend/adminLoginView.php');
     }
 
     public function validation()
