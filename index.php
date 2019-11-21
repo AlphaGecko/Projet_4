@@ -65,7 +65,18 @@ if (isset($_GET['action'])) {
     
         elseif($_GET['action'] === 'connexion') 
         {
-            $adminView->adminDatas();
+            $adminView->injectAdminDatas();
+            $isAdmin = false; 
+
+            for ($i = 0; $i < count($adminView->getAdminPassword()); $i++)
+            {
+                $test = password_verify(htmlspecialchars($_POST['admin_password']), $adminView->getAdminPassword()[$i]);
+
+                if ($test === true && $isAdmin === false)
+                {
+                    $isAdmin = true;
+                }
+            }
     
             if (htmlspecialchars(in_array($_POST['admin_name'], $adminView->getAdminName()))  && htmlspecialchars(in_array($_POST['admin_password'], $adminView->getAdminPassword())) )
             {

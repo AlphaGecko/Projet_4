@@ -6,12 +6,20 @@ class AdminController extends UserController
     private $_adminPassword;
     private $_adminNickName;
 
-    public function adminDatas() 
+    public function injectAdminDatas() 
     {
         $connexionManager = new ConnexionManager;
         $adminDatas = $connexionManager->getAdmin();
-
         $datas = $adminDatas->fetchAll();
+
+        $hashedPasswords = [];
+        $passwordsArray = array_column($datas, 'admin_password');
+        $options = ['cost' => 10];
+
+        for($i = 0; $i < count($passwordsArray); $i++)
+        {
+            $hashedPasswords[$i] = password_hash($passwordsArray[$i], PASSWORD_DEFAULT, $options);
+        }
 
         $this->_adminName = array_column($datas, 'admin_name');
         $this->_adminPassword = array_column($datas, 'admin_password');
