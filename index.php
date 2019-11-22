@@ -72,13 +72,13 @@ if (isset($_GET['action'])) {
             {
                 $test = password_verify(htmlspecialchars($_POST['admin_password']), $adminView->getAdminPassword()[$i]);
 
-                if ($test === true && $isAdmin === false)
+                if ($test === true)
                 {
                     $isAdmin = true;
                 }
             }
     
-            if (htmlspecialchars(in_array($_POST['admin_name'], $adminView->getAdminName()))  && htmlspecialchars(in_array($_POST['admin_password'], $adminView->getAdminPassword())) )
+            if (htmlspecialchars(in_array($_POST['admin_name'], $adminView->getAdminName())) && $isAdmin === true)
             {
                 $wichArray = array_search($_POST['admin_name'], $adminView->getAdminName());
                 
@@ -88,6 +88,7 @@ if (isset($_GET['action'])) {
             else 
             {
                 $userView->error();
+                print_r($adminView->getAdminPassword());
             }
             
         }

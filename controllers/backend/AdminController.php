@@ -22,7 +22,7 @@ class AdminController extends UserController
         }
 
         $this->_adminName = array_column($datas, 'admin_name');
-        $this->_adminPassword = array_column($datas, 'admin_password');
+        $this->_adminPassword =  $hashedPasswords;
         $this->_adminNickName = array_column($datas, 'admin_pseudo');
     }
 
