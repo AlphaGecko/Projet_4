@@ -37,12 +37,6 @@ class CommentManager
         $deleteComment->execute(array($commentId));
     }
 
-    public function deleteCommentsWithBill($billId)
-    {
-        $deleteComment = DbManager::dbConnect()->prepare('DELETE FROM comments WHERE bill_id = ?');
-        $deleteComment->execute(array($billId));
-    }
-
     public function updateReport($commentId)
     {  
         $updateComment = DbManager::dbConnect()->prepare('UPDATE comments SET report = report + 1 WHERE id = ?');

@@ -113,10 +113,7 @@ class AdminController extends UserController
         if (isset($_SESSION['admin']))
         {
             $billManager = new BillManager;
-            $commentManager = new CommentManager;
-
             $billManager->deleteBill($billID);
-            $commentManager->deleteCommentsWithBill($billID);
             
             require_once('view/backend/adminValidationView.php');
         }  
