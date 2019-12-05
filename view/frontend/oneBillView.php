@@ -1,11 +1,9 @@
 <?php 
-
-
-if ($bill['id'] !== $_GET['id']) {
+if ($bill['id'] !== $_GET['id']) 
+{
     header('Location:https://www.alpha-gecko.com/Projet_4/index.php?action=error'); 
     exit();
 }
-
 ?> 
 
 <?php ob_start(); ?>
@@ -29,8 +27,6 @@ if ($bill['id'] !== $_GET['id']) {
 <div class="comments_container">
 
     <h2 class="comment_title">Commentaires</h2>
-
-    <!-- Affichage d'un formulaire pour écrire un nouveau commentaire -->
 
     <form action="index.php?action=bill&amp;id=<?= $bill['id'] ?>&amp;comment=addComment" method="post">
         <div>

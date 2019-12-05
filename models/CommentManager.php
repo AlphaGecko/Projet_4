@@ -52,7 +52,7 @@ class CommentManager
     public function getReportedComments()
     {
         $allComments = DbManager::dbConnect()->query('SELECT id, comment_author, comment, report, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') 
-        AS comment_date_fr FROM comments ORDER BY comment_date DESC'); 
+        AS comment_date_fr FROM comments WHERE report > 0 ORDER BY comment_date DESC'); 
         
         return $allComments;
     }

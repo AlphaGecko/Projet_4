@@ -5,15 +5,7 @@ a:link, a:visited {
     color: black;
 } 
 
-
-
-
-
 /* Keyframes */ 
-
-
-
-
 
 @-webkit-keyframes spin {
     0% { transform: rotate(0deg); }
@@ -35,14 +27,7 @@ a:link, a:visited {
     100% { transform: rotate(360deg); }
 }
 
-
-
-
 /* loader */ 
-
-
-
-
 
 #loader {
     position: absolute;
@@ -68,15 +53,7 @@ a:link, a:visited {
     animation: spin 2s linear infinite;
 }
 
-
-
-
-
 /* Onload */ 
-
-
-
-
 
 #main {
     opacity: 0;
@@ -86,16 +63,7 @@ a:link, a:visited {
     z-index: -10;
 }
 
-
-
-
-
 /* Fonts and sizes */
-
-
-
-
-
 
 h2 strong, nav a, header p {
     font-family: 'Caveat', cursive;
@@ -240,17 +208,7 @@ footer p {
     font-family: 'Titillium Web', sans-serif;
 }
 
-
-
-
-
-
 /* main style */
-
-
-
-
-
 
 .content {
     padding-top: 140px;
@@ -266,16 +224,7 @@ html {
     min-width: 720px;
 }
 
-
-
-
-
 /* user nav */ 
-
-
-
-
-
 
 nav {
     border-bottom: 3px groove #333;
@@ -288,7 +237,6 @@ nav {
     display: flex;
     min-width: 720px;
 }
-
 
 #menu a {
     border: 2px solid #555;
@@ -319,15 +267,7 @@ nav {
     z-index: -100;
 }
 
-
-
-
-
 /* header */ 
-
-
-
-
 
 #header_container {
     position: relative;
@@ -370,15 +310,7 @@ nav {
     width: 100%; 
 }
 
-
-
-
-
 /* Bills */ 
-
-
-
-
 
 .bill {
     border: 3px groove #555;
@@ -408,6 +340,7 @@ nav {
 .back {
     margin-left: 10px;
     margin-bottom: 10px; 
+    text-align: center;
 }
 
 .back:hover, .full_view_link:hover {
@@ -418,15 +351,7 @@ nav {
     text-align: center;
 }
 
-
-
-
-
 /* Comments */ 
-
-
-
-
 
 .comments_container {
     margin-left: 10px;
@@ -476,15 +401,7 @@ nav {
     background-color: rgb(255, 51, 0, 0.8);
 }
 
-
-
-
-
 /* login */ 
-
-
-
-
 
 #log_container {
     text-align: center;
@@ -503,45 +420,19 @@ nav {
     background: rgb(128, 170, 255) !important;
 }
 
-
-
-
-
-
 /* Validation */ 
-
-
-
-
-
 
 #validation_container {
     text-align: center;
 }
 
-
-
-
-
 /* all bills */ 
-
-
-
-
 
 .one_bill_container_list:hover {
     text-decoration: underline;
 }
 
-
-
-
-
-
 /* admin header */ 
-
-
-
 
 #admin_panel_title_container {
     text-align: center;
@@ -574,16 +465,7 @@ nav {
     transition: box-shadow 0.5s linear;
 }
 
-
-
-
-
-
 /* Admin panel */ 
-
-
-
-
 
 #request_box {
     min-height: 200px; 
@@ -644,53 +526,25 @@ nav {
     margin: 20px 0 20px 0;
 }
 
-
-
-
 /* error */
-
-
-
 
 .error_container {
     text-align: center;
 }
 
-
-
-
 /* Disconnect */
-
-
-
-
 
 #disconnect {
     text-align: center;
 }
 
-
-
-
 /* legal */ 
-
-
-
-
 
 #legal_container p em, #legal_container p a {
     text-decoration: underline;
 }
 
-
-
-
-
 /* footer */ 
-
-
-
-
 
 footer {
     background: linear-gradient(#444, #222);

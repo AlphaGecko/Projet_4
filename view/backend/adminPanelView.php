@@ -32,7 +32,20 @@ else
 
         <div id="alert">Il y'a actuellement 
             <span class="btn btn-warning">
-                <a href="https://www.alpha-gecko.com/Projet_4/index.php?action=reportedComments">
+                <?php
+                if($reportedNumber > 0)
+                {
+                ?>
+                    <a href="https://www.alpha-gecko.com/Projet_4/index.php?action=reportedComments">
+                <?php 
+                }
+                else
+                {
+                ?>
+                    <a href='#'>
+                <?php
+                }
+                ?>
                     <span class="badge">
                         <?= $reportedNumber ?> 
                     </span>

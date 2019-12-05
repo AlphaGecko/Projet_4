@@ -60,7 +60,7 @@ class AdminController extends UserController
         if (isset($_SESSION['admin']))
         {
             $commentManager = new CommentManager();
-            $reports = $commentManager->allComments();
+            $reports = $commentManager->getReportedComments();
 
             require_once('view/backend/adminReportedCommentsView.php');
         }
@@ -155,5 +155,10 @@ class AdminController extends UserController
     {
         session_destroy();
         require_once('view/backend/deconnexionView.php');
+    }
+
+    public function adminError() 
+    {
+        require_once('view/backend/adminErrorView.php');
     }
 }

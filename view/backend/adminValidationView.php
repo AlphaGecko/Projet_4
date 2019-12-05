@@ -51,7 +51,7 @@ if (!isset($_SESSION['admin']))
             <h2 class="validation">Le commentaire à bien été supprimé !</h2>
             <a href="https://www.alpha-gecko.com/Projet_4/index.php?action=reportedComments" class="back"><p>Retour à la liste des commentaires signalés</p></a>
             <a href="https://www.alpha-gecko.com/Projet_4/index.php?action=editComment&amp;id=<?= $_GET['id'] ?>" class="back"><p>Retour au billet associé</p></a>
-            <a href="https://www.alpha-gecko.com/Projet_4" class="back"><p>Retour à panneau adminisitrateur</p></a>
+            <a href="https://www.alpha-gecko.com/Projet_4" class="back"><p>Retour au panneau adminisitrateur</p></a>
         </div>
     <?php
     }
